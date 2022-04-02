@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-gold text-3xl">ProShine</h1>
+    <h1 class="text-gold text-3xl h-[200vh]">ProShine</h1>
   </div>
 </template>
 
