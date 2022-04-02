@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    h1,h2,h3,h4,p,a,span,b,string,li{
+        @apply font-main
+    }
+}
