@@ -1,17 +1,22 @@
 <template>
-  <div class="bg-gray-dark">
+  <div class="relative bg-gray-dark px-[5%]">
+    <Background/>
+    <div class="z-10">
       <Navbar/>
       <Nuxt/>
+    </div>
   </div>
 </template>
 
 <script>
 import Navbar from "../components/Navbar.vue";
+import Background from "../components/Background.vue";
 
 export default {
-    components: { 
-        Navbar 
-    }
+    components: {
+    Navbar,
+    Background
+},
 }
 </script>
 

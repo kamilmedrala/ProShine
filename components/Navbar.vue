@@ -1,5 +1,5 @@
 <template>
-  <nav class="mx-[5%] fixed">
+  <nav class="fixed">
       <div class="flex justify-between">
           <div>
               <nuxt-link to="/">
