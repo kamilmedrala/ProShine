@@ -1,8 +1,8 @@
 <template>
-  <div class="relative bg-gray-dark px-[5%]">
+  <div class="relative px-[5%]">
     <Background/>
     <div class="z-10">
-      <Navbar/>
+      <Navbar :menu="menuItems"/>
       <Nuxt/>
     </div>
   </div>
@@ -16,7 +16,25 @@ export default {
     components: {
     Navbar,
     Background
-},
+  },
+  data(){
+        return{
+            menuItems:{
+                0:{
+                    title: 'Oferta',
+                    link: '/oferta'
+                },
+                1:{
+                    title: 'Realizacje',
+                    link: '/realizacje'
+                },
+                2:{
+                    title: 'Kontakt',
+                    link: '/kontakt'
+                },
+            }
+        }
+    }
 }
 </script>
 

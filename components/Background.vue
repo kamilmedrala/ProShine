@@ -1,6 +1,6 @@
 <template>
     <div class="fixed left-0 top-0 w-screen h-screen overflow-hidden pointer-events-none z-0 ">
-        <div class="absolute -left-1/3 md:left-0 bottom-0 opacity-10 animate-[svgAnimation_3s_forwards_ease-in-out]" ref="parallaxBg">
+        <div class="absolute -left-1/3 md:left-0 md:pl-20 bottom-0 opacity-0 animate-[svgAnimation_3s_forwards_ease-in-out]" ref="parallaxBg">
             <svg class="w-full md:w-4/5 h-auto teste" width="913" height="866" viewBox="0 0 913 766" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M243.788 325.548C243.805 334.482 255.476 334.889 255.459 325.548" stroke="#CCBC69" stroke-linejoin="round"/>
             <path d="M140.094 143.298C142.365 511.179 224.574 670.033 457.011 779.377" stroke="#CCBC69" stroke-linejoin="round"/>
@@ -61,7 +61,7 @@ export default {
     name:'Background',
     mounted(){
     
-        let background = this.$refs.parallaxBg
+        const background = this.$refs.parallaxBg
         window.addEventListener('scroll',function () {
         
             background.style.transform = 'translateY('+ -(window.scrollY*100/(document.body.scrollHeight-window.innerHeight+background.clientHeight)) +'%)';
@@ -73,10 +73,12 @@ export default {
 <style>
 @keyframes svgAnimation{
     0%{ 
+        opacity: 0.4;
         stroke-dasharray: 1000;
         stroke-dashoffset: 1000;
     }
     100%{
+        opacity: 0.08;
         stroke-dasharray: 1000;
         stroke-dashoffset: 0;
 

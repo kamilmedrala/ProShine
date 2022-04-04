@@ -12,7 +12,7 @@ export default {
 
 <style>
 .header{
-    -webkit-text-stroke: 1px white;
+  -webkit-text-stroke: 0.5px white;
   -webkit-text-fill-color:transparent;
 }
 </style>
