@@ -47,11 +47,22 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+
+.page-enter-active .header-text,
+.page-leave-active .header-text{
+  transition: all 0.2s;
+}
+.page-enter .header-text,
+.page-leave-to .header-text {
+  opacity: 0;
+  transform: translateX(-20px);
 }
 </style>

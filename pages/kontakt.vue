@@ -1,7 +1,7 @@
 <template>
   <div>
     <Transition name="fade">
-      <h1 ref="fadeElement" class=" text-[40px] md:text-[80px] pt-[40vh] h-[200vh] uppercase italic header-text transition ">Pro Shine</h1>
+      <h1 ref="fadeElement" class=" text-[40px] md:text-[80px] pt-[40vh] h-[200vh] uppercase italic header-text transition">Kontakt</h1>
     </Transition>
   </div>
 </template>

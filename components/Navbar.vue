@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed left-0 px-[5%] w-full">
+  <nav class="fixed left-0 px-[5%] w-full z-30" >
       <div class="flex justify-between">
           <div>
               <nuxt-link to="/">
