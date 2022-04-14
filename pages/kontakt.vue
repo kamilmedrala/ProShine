@@ -1,22 +1,25 @@
 <template>
   <div>
-    <Transition name="fade">
-      <h1 ref="fadeElement" class=" text-[40px] md:text-[80px] pt-[40vh] h-[200vh] uppercase italic header-text transition">Kontakt</h1>
-    </Transition>
+      <Hero>
+        <template :slot="'left'">
+          <Header :title="'Kontakt'"/>
+        </template>
+      </Hero>
   </div>
 </template>
 
 <script>
+import Hero from "../components/Hero.vue";
+import Header from "../components/Header.vue"
 export default {
-  name: 'Homepage',
+    name: "ContactPage",
+    components: { 
+      Hero,
+      Header
+     }
 }
 </script>
 
 <style>
-
-  .header-text{
-    -webkit-text-stroke: 0.5px white;
-    -webkit-text-fill-color:transparent;
-  }
 
 </style>

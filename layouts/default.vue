@@ -17,6 +17,7 @@ export default {
     Navbar,
     Background
   },
+  scrollToTop: true,
   data(){
         return{
             menuItems:{
@@ -34,6 +35,9 @@ export default {
                 },
             }
         }
+    },
+    mounted(){
+      document.body.scrollIntoView({behavior: 'smooth', block: 'start'});
     }
 }
 </script>
@@ -54,15 +58,5 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
-}
-
-.page-enter-active .header-text,
-.page-leave-active .header-text{
-  transition: all 0.2s;
-}
-.page-enter .header-text,
-.page-leave-to .header-text {
-  opacity: 0;
-  transform: translateX(-20px);
 }
 </style>
