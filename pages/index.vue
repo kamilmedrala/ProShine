@@ -22,14 +22,14 @@
           </div>
         </template>
       </Hero>
-      <div class="h-[200vh]"></div>
+      <div class="h-[200vh]">
+      </div>
   </div>
 </template>
 
 <script>
 import Hero from "../components/Hero.vue"
 import Header from "../components/Header.vue"
-import axios from 'axios';
 
 export default {
     name: "Homepage",
@@ -39,19 +39,11 @@ export default {
     },
     data(){
       return {
-        bannerData:null
+        bannerData:this.$store.state.homepage.banner
       } 
     },
-    computed:{
-      allPosts() {
-        axios.get(
-            `https://api.kamilmedrala.thecamels.eu/wp-json/wp/v2/pages/2/`
-        ).then(response => {
-            this.bannerData = response.data.acf;
-        });
-      },
-    },
     mounted(){
+        
       let swiperPosition = this.$refs.parallaxSwiper;
 
       window.addEventListener('scroll',function () {

@@ -36,9 +36,9 @@ export default {
             }
         }
     },
-    mounted(){
-      document.body.scrollIntoView({behavior: 'smooth', block: 'start'});
-    }
+    // mounted(){
+    //   document.body.scrollIntoView({behavior: 'smooth', block: 'start'});
+    // }
 }
 </script>
 
