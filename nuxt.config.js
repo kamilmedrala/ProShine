@@ -35,7 +35,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/axios'],
+
+  image: {
+    domains: ['https://api.kamilmedrala.thecamels.eu/']
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
