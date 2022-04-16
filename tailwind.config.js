@@ -13,7 +13,7 @@ module.exports = {
         gray:{
           light: '#E5E5E5',
           main: '#2F2F2C',
-          dark: '#1F1F1E'
+          dark: '#1C1C1C'
         }
       },
       fontFamily:{

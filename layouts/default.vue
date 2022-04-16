@@ -1,7 +1,7 @@
 <template>
   <div class="relative px-[5%]">
     <Background/>
-    <div class="z-10">
+    <div class="z-10 min-h-screen">
       <Navbar :menu="menuItems"/>
       <Nuxt/>
     </div>
@@ -36,9 +36,6 @@ export default {
             }
         }
     },
-    // mounted(){
-    //   document.body.scrollIntoView({behavior: 'smooth', block: 'start'});
-    // }
 }
 </script>
 

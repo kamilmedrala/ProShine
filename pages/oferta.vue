@@ -6,6 +6,7 @@
         </template>
       </Hero>
   </div>
+  
 </template>
 
 <script>

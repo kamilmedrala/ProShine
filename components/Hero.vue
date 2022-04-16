@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-col md:flex-row h-screen">
-      <div class="fade-left transition duration-200 flex items-center shrink-0 relative z-20 basis-1/2">
+  <div class="flex flex-col md:items-center md:flex-row h-screen 2xl:max-h-[800px] pt-24">
+      <div class="fade-left transition duration-200 flex items-center shrink-0 relative basis-1/2 h-full z-50">
         <slot name="left">
 
         </slot>
       </div>
-      <div class="fade-right transition duration-200 flex items-center shrink-0 flex-grow-0 relative basis-1/2">
+      <div class="fade-right transition duration-200 flex items-center justify-center shrink-0 flex-grow-0 relative basis-1/2 h-full ">
         <slot name="right">
 
         </slot>
