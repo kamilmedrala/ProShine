@@ -8,7 +8,7 @@
           </div>
               <ul class="flex items-center justify-end">
                   <li class="ml-10" v-for="item in menu" :key="item.title">
-                      <nuxt-link class="block p-2 text-white text-lg font-light hover:text-gold transition" :to="item.link">{{item.title}}</nuxt-link>
+                      <nuxt-link class="block p-2 text-white text-lg font-extralight hover:text-gold transition" :to="item.link">{{item.title}}</nuxt-link>
                   </li>
               </ul>
       </div>

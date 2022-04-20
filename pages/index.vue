@@ -5,10 +5,10 @@
           <Header :title="'Pro Shine'"/>
         </template>
         <template :slot="'right'">
-          <div ref="parallaxBanner" class=" absolute md:right-[5%] w-full h-full md:w-[60vw] ">
+          <div ref="parallaxBanner" class="relative right-[-5%] md:absolute md:right-[5%] w-full h-full md:w-[60vw] mb-6 md:mb-0">
             <div class="flex flex-col justify-center h-full">
               <client-only>
-                <swiper class="swiper aspect-video w-full rounded-md" 
+                <swiper class="swiper h-[400px] md:h-auto md:aspect-video w-full rounded-md" 
                   :options="{
                     spaceBetween:20,
                     grabCursor:'true',
@@ -34,7 +34,16 @@
           </div>
         </template>
       </Hero>
-      <div class="h-[200vh] bg-blue-200/10 fade-left transition duration-200">
+      <div class="h-[200vh] fade-left transition duration-200 pt-32">
+        <div>
+          <h2 class="mb-5 pl-5 italic">O nas</h2>
+          <p class="">Oferujemy profesjonalną usługę kompleksowego czyszczenia, renowacji i konserwacji pojazdu samochodowego lub jego elementów, zarówno na zewnątrz jak i wewnątrz, w celu podniesienia walorów estetycznych i użytkowych pojazdu, a także przedłużenia jego żywotności. Korzystamy wyłącznie z produktów najlepszej jakości. <a href="tel:">Zadzwoń już teraz</a> i dołącz do grona naszych zadowolonych klientów!</p>
+        </div>
+        <div class="w-full flex justify-end mt-[200px]">
+          <div>
+            <Header :title="'Oferta'"/>
+          </div>
+        </div>
       </div>
   </div>
 </template>
@@ -59,7 +68,7 @@ export default {
       let swiperPosition = this.$refs.parallaxBanner;
 
       window.addEventListener('scroll',function () {
-        swiperPosition.style.transform = 'translateY('+ (window.scrollY)*0.2 + 'px)'
+        swiperPosition.style.transform = 'translateY('+ (window.scrollY)*0.15 + 'px)'
       })
       
     },

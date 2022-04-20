@@ -78,7 +78,7 @@ export default {
         stroke-dashoffset: 1000;
     }
     100%{
-        opacity: 0.08;
+        opacity: 0.06;
         stroke-dasharray: 1000;
         stroke-dashoffset: 0;
 

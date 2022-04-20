@@ -1,7 +1,7 @@
 <template>
   <div class="relative px-[5%]">
     <Background/>
-    <div class="z-10 min-h-screen">
+    <div class="z-10 md:min-h-screen">
       <Navbar :menu="menuItems"/>
       <Nuxt/>
     </div>
