@@ -19,7 +19,9 @@
                   autoplay: {
                     delay: 7000,
                   },
-                  speed: 500,
+
+                  parallax: true,
+                  speed: 800,
                   navigation: {
                     nextEl: '.swiper-next',
                     prevEl: '.swiper-prev',
@@ -34,17 +36,19 @@
                   <div class="w-full h-full relative z-30">
                     <nuxt-picture
                       preload
-                      class="block w-full h-full"
+                      class="block w-full h-full overflow-hidden"
                       :imgAttrs="{
                         class:
                           'loading opacity-100 transition duration-500 w-full h-full rounded-md object-cover overflow-hidden',
                         loading: 'eager',
+
+                        'data-swiper-parallax': '100',
                       }"
                       :src="item.url"
                       @load="removeLoadingStyle($event)"
                     ></nuxt-picture>
                     <div
-                      class="w-full h-full absolute top-0 left-0 bg-gradient-to-r from-gray-dark via-transparent to-transparent opacity-0 transition duration-300"
+                      class="w-full h-full absolute top-0 -left-[1px] bg-gradient-to-r from-gray-dark via-transparent to-transparent opacity-0 transition duration-300"
                     ></div>
                   </div>
                 </swiper-slide>
