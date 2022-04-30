@@ -1,41 +1,41 @@
 <template>
   <div class="relative px-[5%]">
-    <Background/>
+    <Background />
     <div class="z-10 md:min-h-screen">
-      <Navbar :menu="menuItems"/>
-      <Nuxt/>
+      <Navbar :menu="menuItems" />
+      <Nuxt />
     </div>
   </div>
 </template>
 
 <script>
-import Navbar from "../components/Navbar.vue";
-import Background from "../components/Background.vue";
+import Navbar from '../components/Navbar.vue'
+import Background from '../components/Background.vue'
 
 export default {
-    components: {
+  components: {
     Navbar,
-    Background
+    Background,
   },
   scrollToTop: true,
-  data(){
-        return{
-            menuItems:{
-                0:{
-                    title: 'Oferta',
-                    link: '/oferta'
-                },
-                1:{
-                    title: 'Realizacje',
-                    link: '/realizacje'
-                },
-                2:{
-                    title: 'Kontakt',
-                    link: '/kontakt'
-                },
-            }
-        }
-    },
+  data() {
+    return {
+      menuItems: {
+        0: {
+          title: 'Oferta',
+          link: '/oferta',
+        },
+        1: {
+          title: 'Realizacje',
+          link: '/realizacje',
+        },
+        2: {
+          title: 'Kontakt',
+          link: '/kontakt',
+        },
+      },
+    }
+  },
 }
 </script>
 

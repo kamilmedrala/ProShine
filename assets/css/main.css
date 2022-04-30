@@ -1,29 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap');
+@font-face {
+  font-family: 'Mulish';
+  src: url('../fonts/Mulish-Italic-VariableFont_wght.ttf');
+  src: url('../fonts/Mulish-VariableFont_wght.ttf');
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 @layer base {
   body {
     @apply bg-gray-dark;
   }
 
-  h1,h2,h3,h4,p,a,span,b,string,li {
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  a,
+  span,
+  b,
+  string,
+  li {
     @apply font-main;
   }
 
-  h2{
-    @apply text-gold text-2xl md:text-3xl font-extralight
+  h2 {
+    @apply text-gold text-2xl md:text-3xl font-extralight;
   }
 
-  p{
-    @apply text-white text-base md:text-xl font-extralight text-justify tracking-wide
+  p {
+    @apply text-white text-base md:text-xl font-extralight text-justify tracking-wide;
   }
 
-  a{
-    @apply text-gold
+  a {
+    @apply text-gold;
   }
 
   * {
@@ -49,17 +61,15 @@
     background-color: #2c2c29;
   }
 
-  @keyframes loading{
-      50%{
-        background: rgba(119,119,119,1);
-      }
+  @keyframes loading {
+    50% {
+      background: rgba(119, 119, 119, 1);
     }
+  }
 }
 
-@layer components{
-
-  img.loading{
-    @apply opacity-5 bg-gray-light scale-95 animate-[loading_2s_cubic-bezier(0.4,0,0.6,1)_infinite]
+@layer components {
+  img.loading {
+    @apply opacity-5 bg-gray-light scale-95 animate-[loading_2s_cubic-bezier(0.4,0,0.6,1)_infinite];
   }
-
 }
