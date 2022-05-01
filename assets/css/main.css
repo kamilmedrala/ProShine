@@ -1,7 +1,26 @@
 @font-face {
   font-family: 'Mulish';
-  src: url('../fonts/Mulish-Italic-VariableFont_wght.ttf');
-  src: url('../fonts/Mulish-VariableFont_wght.ttf');
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/Mulish-ExtraLight.ttf');
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: italic;
+  font-weight: 200;
+  src: url('../fonts/Mulish-ExtraLightItalic.ttf');
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Mulish-Regular.ttf');
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/Mulish-Italic.ttf');
 }
 
 @tailwind base;
@@ -10,7 +29,7 @@
 
 @layer base {
   body {
-    @apply bg-gray-dark;
+    @apply bg-gray-dark transition-colors duration-500;
   }
 
   h1,
@@ -37,14 +56,17 @@
   a {
     @apply text-gold;
   }
+  p a {
+    @apply font-normal;
+  }
 
   * {
-    scrollbar-width: 20px;
+    scrollbar-width: 10px;
     scrollbar-color: #2f2f2c transparent;
   }
 
   *::-webkit-scrollbar {
-    width: 20px;
+    width: 10px;
   }
 
   *::-webkit-scrollbar-track {
@@ -54,7 +76,6 @@
   *::-webkit-scrollbar-thumb {
     background-color: #2f2f2c;
     border-radius: 10px;
-    border: 5px solid #1f1f1e;
   }
 
   *::-webkit-scrollbar-thumb:hover {
@@ -70,6 +91,6 @@
 
 @layer components {
   img.loading {
-    @apply opacity-5 bg-gray-light scale-95 animate-[loading_2s_cubic-bezier(0.4,0,0.6,1)_infinite];
+    @apply opacity-5 rounded-md bg-gray-light scale-95 animate-[loading_2s_cubic-bezier(0.4,0,0.6,1)_infinite];
   }
 }

@@ -1,18 +1,18 @@
 <template>
   <nav
-    class="fixed left-0 top-0 px-[5%] w-full z-50 transition bg-gradient-to-b from-gray-dark to-transparent"
+    class="fixed left-0 top-0 w-full z-50 transition bg-gradient-to-b from-gray-dark to-transparent"
   >
-    <div class="relative flex justify-between">
-      <div>
-        <nuxt-link to="/">
+    <div class="relative px-[5%] flex justify-between">
+      <div class="z-[70]">
+        <nuxt-link to="/" @click.native="closeSideMenu()">
           <nuxt-picture
             width="80"
             height="80"
             :imgAttrs="{
               class: 'my-1 w-[inherit] transition-all duration-200',
             }"
-            class="w-14 md:w-20"
-            :class="{ 'md:w-14': this.collapsed }"
+            class="w-16 md:w-20"
+            :class="{ 'w-14 md:w-14': this.collapsed }"
             src="/logo.png"
             alt="ProShine Logo"
           />
@@ -21,7 +21,7 @@
       <div class="z-[70] flex items-center md:hidden">
         <button
           class="menu"
-          @click="toggleSideMenu"
+          @click="toggleSideMenu()"
           aria-label="Side Menu"
           :class="{ opened: sideMenu }"
           :aria-expanded="sideMenu ? 'true' : 'false'"
@@ -40,12 +40,23 @@
         </button>
       </div>
       <ul
-        class="z-[60] absolute top-0 left-0 h-screen w-screen pt-10 md:pt-0 md:h-auto md:w-auto bg-gray-dark md:bg-transparent md:relative md:flex items-center justify-end"
-        :class="sideMenu ? 'block' : 'hidden'"
+        class="z-[60] absolute top-0 left-0 h-screen w-screen pt-20 md:pt-0 md:h-auto md:w-auto md:relative md:flex items-center justify-end transition duration-300"
+        :class="
+          sideMenu
+            ? 'bg-gray-dark/80 backdrop-blur-md'
+            : 'pointer-events-none md:pointer-events-auto'
+        "
+        @click="toggleSideMenu()"
       >
-        <li class="ml-10" v-for="item in menu" :key="item.title">
+        <li
+          class="ml-5 md:ml-10"
+          v-for="(item, index) in menu"
+          :key="item.title"
+        >
           <nuxt-link
-            class="block p-2 text-white text-lg font-extralight hover:text-gold transition"
+            class="block p-2 text-white text-4xl md:text-lg font-extralight hover:text-gold transform translate-x-4 md:translate-x-0 opacity-0 md:opacity-100 transition duration-200 md:duration-150"
+            :class="{ 'translate-x-0 opacity-100': sideMenu }"
+            :style="{ transitionDelay: 50 * index + 'ms' }"
             :to="item.link"
             >{{ item.title }}</nuxt-link
           >
@@ -83,6 +94,9 @@ export default {
     },
     toggleSideMenu() {
       this.sideMenu = !this.sideMenu
+    },
+    closeSideMenu() {
+      this.sideMenu = false
     },
   },
 }

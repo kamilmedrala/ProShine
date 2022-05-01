@@ -1,4 +1,5 @@
 export const state = () => ({
+  bg:false,
   homepage: {
     banner: {
       zdjecie1: {

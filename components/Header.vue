@@ -2,7 +2,7 @@
   <transition>
     <div class="w-full">
       <h1
-        class="relative header-text text-[40px] md:text-[90px] tracking-widest uppercase italic transition"
+        class="relative header-text text-[50px] md:text-[90px] tracking-widest uppercase italic transition"
       >
         {{ title }}
       </h1>

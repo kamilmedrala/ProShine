@@ -2,22 +2,27 @@
   <div>
     <Hero>
       <template :slot="'left'">
-        <Header :title="'Pro Shine'" />
+        <div class="pl-[5vw]">
+          <Header :title="'Pro Shine'" />
+        </div>
       </template>
       <template :slot="'right'">
         <div
           ref="parallaxBanner"
-          class="relative right-[-5%] md:absolute md:right-[5%] w-full h-full md:w-[60vw] mb-6 md:mb-0 will-change-transform"
+          class="relative pl-[15%] md:pl-0 md:absolute md:right-[2.5vw] w-full h-full overflow-hidden md:w-[60vw] mb-6 md:mb-0 will-change-transform"
         >
-          <div class="flex flex-col justify-center h-full">
+          <div
+            class="fade-right transition duration-200 flex flex-col justify-center h-full"
+          >
             <!-- <client-only> -->
             <swiper
-              class="swiper h-[400px] md:h-auto md:aspect-video w-full rounded-md"
+              class="swiper h-[400px] md:h-auto md:aspect-video w-full rounded-l-md md:rounded-md overflow-hidden"
               :options="{
                 spaceBetween: 20,
                 grabCursor: 'true',
                 autoplay: {
                   delay: 7000,
+                  disableOnInteraction: false,
                 },
                 parallax: true,
                 speed: 750,
@@ -34,15 +39,15 @@
               <swiper-slide
                 v-for="(item, index) in bannerData"
                 :key="index"
-                class="w-full"
+                class="w-full first:rounded-l-md overflow-hidden"
               >
                 <div class="w-full h-full relative z-30">
                   <nuxt-picture
                     preload
-                    class="block w-full h-full overflow-hidden"
+                    class="block w-full h-full md:rounded-md overflow-hidden"
                     :imgAttrs="{
                       class:
-                        'loading opacity-100 transition duration-500 w-full h-full rounded-md object-cover overflow-hidden',
+                        'loading opacity-100 transition duration-500 w-full h-full  object-cover overflow-hidden',
                       loading: 'eager',
 
                       'data-swiper-parallax': '150',
@@ -56,7 +61,7 @@
                 </div>
               </swiper-slide>
             </swiper>
-            <div class="mt-3 flex justify-end">
+            <div class="hidden md:flex justify-end mt-3">
               <span
                 class="swiper-prev group relative overflow-hidden w-14 h-14 flex items-center justify-center rounded-full border border-solid border-gray-light/50 hover:border-white transition text-gray-main"
               >
@@ -183,31 +188,47 @@
         </div>
       </template>
     </Hero>
-    <div class="h-[200vh] fade-left transition duration-200 pt-32">
-      <div>
-        <h2 class="mb-5 pl-5 italic">O nas</h2>
-        <p class="">
-          Oferujemy profesjonalną usługę kompleksowego czyszczenia, renowacji i
-          konserwacji pojazdu samochodowego lub jego elementów, zarówno na
-          zewnątrz jak i wewnątrz, w celu podniesienia walorów estetycznych i
-          użytkowych pojazdu, a także przedłużenia jego żywotności. Korzystamy
-          wyłącznie z produktów najlepszej jakości.
-          <a href="tel:">Zadzwoń już teraz</a> i dołącz do grona naszych
-          zadowolonych klientów!
-        </p>
-      </div>
-      <div class="w-full flex justify-end mt-[200px]">
-        <div>
-          <Header :title="'Oferta'" />
-        </div>
+    <div class="px-[5%] fade-left transition duration-200 pt-32">
+      <h2 class="mb-5 pl-5 italic">O nas</h2>
+      <p>
+        Oferujemy profesjonalną usługę kompleksowego czyszczenia, renowacji i
+        konserwacji pojazdu samochodowego lub jego elementów, zarówno na
+        zewnątrz jak i wewnątrz, w celu podniesienia walorów estetycznych i
+        użytkowych pojazdu, a także przedłużenia jego żywotności. Korzystamy
+        wyłącznie z produktów najlepszej jakości.
+        <a href="tel:">Zadzwoń już teraz</a> i dołącz do grona naszych
+        zadowolonych klientów!
+      </p>
+    </div>
+    <div
+      ref="offer"
+      class="px-[5%] overflow-hidden w-full flex justify-end mt-[200px]"
+    >
+      <div class="fade-right">
+        <Header :title="'Oferta'" />
       </div>
     </div>
+    <div
+      class="px-[5%] flex justify-center items-center gap-5 flex-wrap md:flex-nowrap"
+    >
+      <div
+        class="basis-1/3 bg-gray-main h-[500px] rounded-md transition hover:bg-gray-dark min-w-[250px]"
+      ></div>
+      <div
+        class="basis-1/3 bg-gray-main h-[500px] rounded-md transition hover:bg-gray-dark min-w-[250px]"
+      ></div>
+      <div
+        class="basis-1/3 bg-gray-main h-[500px] rounded-md transition hover:bg-gray-dark min-w-[250px]"
+      ></div>
+    </div>
+    <div class="px-[5%] w-full h-screen"></div>
   </div>
 </template>
 
 <script>
 import Hero from '../components/Hero.vue'
 import Header from '../components/Header.vue'
+import { state } from '../store'
 
 export default {
   name: 'Homepage',
@@ -222,10 +243,18 @@ export default {
   },
   mounted() {
     let swiperPosition = this.$refs.parallaxBanner
+    let offerPosition = this.$refs.offer.getBoundingClientRect().top - 200
 
     window.addEventListener('scroll', function () {
       swiperPosition.style.transform =
         'translateY(' + window.scrollY * 0.15 + 'px)'
+
+      if (offerPosition < window.scrollY) {
+        // $store.state.bg = true
+        this.document.body.classList.add('bg-gold')
+      } else {
+        this.document.body.classList.remove('bg-gold')
+      }
     })
   },
   methods: {

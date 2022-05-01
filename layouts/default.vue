@@ -1,5 +1,5 @@
 <template>
-  <div class="relative px-[5%]">
+  <div class="relative">
     <Background />
     <div class="z-10 md:min-h-screen">
       <Navbar :menu="menuItems" />

@@ -1,25 +1,25 @@
 <template>
   <div>
-      <Hero>
-        <template :slot="'left'">
-          <Header :title="'Kontakt'"/>
-        </template>
-      </Hero>
+    <Hero>
+      <template :slot="'left'">
+        <div class="px-[5%]">
+          <Header :title="'Kontakt'" />
+        </div>
+      </template>
+    </Hero>
   </div>
 </template>
 
 <script>
-import Hero from "../components/Hero.vue";
-import Header from "../components/Header.vue"
+import Hero from '../components/Hero.vue'
+import Header from '../components/Header.vue'
 export default {
-    name: "ContactPage",
-    components: { 
-      Hero,
-      Header
-     }
+  name: 'ContactPage',
+  components: {
+    Hero,
+    Header,
+  },
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
