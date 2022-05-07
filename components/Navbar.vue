@@ -58,7 +58,7 @@
           :key="item.title"
         >
           <nuxt-link
-            class="block p-2 text-white text-4xl md:text-lg font-extralight hover:text-gold transform translate-x-4 md:translate-x-0 opacity-0 md:opacity-100 transition duration-200 md:duration-150"
+            class="inline-block p-2 text-white text-4xl md:text-lg font-extralight hover:text-gold transform translate-x-4 md:translate-x-0 opacity-0 md:opacity-100 transition duration-200 md:duration-150 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:rounded-full after:ml-2 after:bg-gold after:transition-all after:duration-200"
             :class="{ 'translate-x-0 opacity-100': sideMenu }"
             :style="{ transitionDelay: 50 * index + 'ms' }"
             :to="item.link"
@@ -107,7 +107,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss" scoped>
+.nuxt-link-active {
+  @apply text-gold after:w-4/5;
+}
+
 .line {
   fill: none;
   stroke: white;

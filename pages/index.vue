@@ -188,38 +188,35 @@
         </div>
       </template>
     </Hero>
-    <div class="px-[5%] fade-left transition duration-200 pt-32">
-      <h2 class="mb-5 pl-5 italic">O nas</h2>
-      <p>
-        Oferujemy profesjonalną usługę kompleksowego czyszczenia, renowacji i
-        konserwacji pojazdu samochodowego lub jego elementów, zarówno na
-        zewnątrz jak i wewnątrz, w celu podniesienia walorów estetycznych i
-        użytkowych pojazdu, a także przedłużenia jego żywotności. Korzystamy
-        wyłącznie z produktów najlepszej jakości.
-        <a href="tel:">Zadzwoń już teraz</a> i dołącz do grona naszych
-        zadowolonych klientów!
-      </p>
-    </div>
-    <div
-      ref="offer"
-      class="px-[5%] overflow-hidden w-full flex justify-end mt-[200px]"
-    >
-      <div class="fade-right transition duration-200">
-        <Header :title="'Oferta'" />
+    <Appear>
+      <div class="px-[5%] fade-left transition duration-200 pt-32 mb-[200px]">
+        <h2 class="mb-5 pl-5 italic">O nas</h2>
+        <p>
+          Oferujemy profesjonalną usługę kompleksowego czyszczenia, renowacji i
+          konserwacji pojazdu samochodowego lub jego elementów, zarówno na
+          zewnątrz jak i wewnątrz, w celu podniesienia walorów estetycznych i
+          użytkowych pojazdu, a także przedłużenia jego żywotności. Korzystamy
+          wyłącznie z produktów najlepszej jakości.
+          <a href="tel:">Zadzwoń już teraz</a> i dołącz do grona naszych
+          zadowolonych klientów!
+        </p>
       </div>
-    </div>
+    </Appear>
+    <Appear>
+      <div class="px-[5%] overflow-hidden w-full flex justify-end">
+        <div class="fade-right transition duration-200">
+          <Header :title="'Oferta'" />
+        </div>
+      </div>
+    </Appear>
     <div
       class="px-[5%] flex justify-center items-center gap-5 flex-wrap md:flex-nowrap"
     >
-      <div
-        class="basis-1/3 bg-gray-main h-[500px] rounded-md transition hover:bg-gray-dark min-w-[250px]"
-      ></div>
-      <div
-        class="basis-1/3 bg-gray-main h-[500px] rounded-md transition hover:bg-gray-dark min-w-[250px]"
-      ></div>
-      <div
-        class="basis-1/3 bg-gray-main h-[500px] rounded-md transition hover:bg-gray-dark min-w-[250px]"
-      ></div>
+      <Appear v-for="i in 5" :key="i">
+        <div
+          class="basis-full md:basis-1/3 bg-gray-main h-[500px] rounded-md transition hover:bg-gray-dark min-w-[250px]"
+        ></div>
+      </Appear>
     </div>
     <div class="px-[5%] w-full h-screen"></div>
   </div>
@@ -228,12 +225,14 @@
 <script>
 import Hero from '../components/Hero.vue'
 import Header from '../components/Header.vue'
+import Appear from '../components/Appear.vue'
 
 export default {
   name: 'Homepage',
   components: {
     Hero,
     Header,
+    Appear,
   },
   data() {
     return {
@@ -242,7 +241,6 @@ export default {
   },
   mounted() {
     let swiperPosition = this.$refs.parallaxBanner
-    let offerPosition = this.$refs.offer.getBoundingClientRect().top - 200
 
     window.addEventListener('scroll', function () {
       swiperPosition.style.transform =
