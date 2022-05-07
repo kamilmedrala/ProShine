@@ -204,7 +204,7 @@
       ref="offer"
       class="px-[5%] overflow-hidden w-full flex justify-end mt-[200px]"
     >
-      <div class="fade-right">
+      <div class="fade-right transition duration-200">
         <Header :title="'Oferta'" />
       </div>
     </div>
@@ -228,7 +228,6 @@
 <script>
 import Hero from '../components/Hero.vue'
 import Header from '../components/Header.vue'
-import { state } from '../store'
 
 export default {
   name: 'Homepage',
@@ -248,13 +247,6 @@ export default {
     window.addEventListener('scroll', function () {
       swiperPosition.style.transform =
         'translateY(' + window.scrollY * 0.15 + 'px)'
-
-      if (offerPosition < window.scrollY) {
-        // $store.state.bg = true
-        this.document.body.classList.add('bg-gold')
-      } else {
-        this.document.body.classList.remove('bg-gold')
-      }
     })
   },
   methods: {

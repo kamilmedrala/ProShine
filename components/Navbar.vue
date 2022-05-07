@@ -2,7 +2,10 @@
   <nav
     class="fixed left-0 top-0 w-full z-50 transition bg-gradient-to-b from-gray-dark to-transparent"
   >
-    <div class="relative px-[5%] flex justify-between">
+    <div
+      class="relative px-[5%] flex justify-between transform duration-500"
+      :class="{ 'translate-y-[-50%] opacity-0': !loaded }"
+    >
       <div class="z-[70]">
         <nuxt-link to="/" @click.native="closeSideMenu()">
           <nuxt-picture
@@ -15,6 +18,7 @@
             :class="{ 'w-14 md:w-14': this.collapsed }"
             src="/logo.png"
             alt="ProShine Logo"
+            @load="loaded = true"
           />
         </nuxt-link>
       </div>
@@ -77,6 +81,7 @@ export default {
   },
   data() {
     return {
+      loaded: false,
       collapsed: false,
       sideMenu: false,
     }
