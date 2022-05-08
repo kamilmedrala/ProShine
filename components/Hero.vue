@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full flex flex-col-reverse md:items-center md:flex-row md:h-screen 2xl:max-h-[800px] pt-20 md:pt-24"
+    class="w-full flex flex-col-reverse md:items-center md:flex-row h-full pt-20 md:pt-24"
   >
     <div
       class="fade-left transition duration-200 flex items-center shrink-0 relative pointer-events-none basis-1/2 h-full z-40"
