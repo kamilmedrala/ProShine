@@ -2,7 +2,7 @@
   <div
     ref="target"
     class="w-full transition transform duration-700"
-    :class="{ 'opacity-0 translate-y-5': !targetIsVisible }"
+    :class="{ 'opacity-0 md:translate-y-5': !targetIsVisible }"
   >
     <slot> </slot>
   </div>
