@@ -3,7 +3,7 @@
     class="fixed left-0 top-0 w-screen h-screen overflow-hidden pointer-events-none z-0"
   >
     <div
-      class="bg absolute -left-1/3 md:left-0 md:pl-20 bottom-0 opacity-0 animate-[svgAnimation_3s_forwards_ease-in-out] will-change-transform"
+      class="bg absolute -left-1/3 md:left-0 md:pl-20 bottom-0 opacity-0 animate-[svgAnimation_3s_forwards_ease-in-out_0.5s] will-change-transform"
       ref="parallaxBg"
     >
       <svg

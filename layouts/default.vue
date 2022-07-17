@@ -40,20 +40,26 @@ export default {
 </script>
 
 <style>
-html {
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.15s;
 }
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
+
+.page-enter-from,
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+.page-enter-from .fade-left,
+.page-enter .fade-left,
+.page-leave-to .fade-left {
+  transform: translateX(-20px);
+}
+
+.page-enter-from .fade-right,
+.page-enter .fade-right,
+.page-leave-to .fade-right {
+  transform: translateX(20px);
 }
 </style>

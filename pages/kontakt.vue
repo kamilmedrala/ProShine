@@ -3,7 +3,7 @@
     <Hero>
       <template :slot="'left'">
         <div class="px-[5%]">
-          <Header :title="'Kontakt'" />
+          <HeaderSection :title="'Kontakt'" />
         </div>
       </template>
     </Hero>
@@ -12,12 +12,12 @@
 
 <script>
 import Hero from '../components/Hero.vue'
-import Header from '../components/Header.vue'
+import HeaderSection from '../components/HeaderSection.vue'
 export default {
   name: 'ContactPage',
   components: {
     Hero,
-    Header,
+    HeaderSection,
   },
 }
 </script>
