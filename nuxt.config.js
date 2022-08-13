@@ -18,13 +18,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/main.css', 'swiper/css/swiper.css'],
+  css: ['@/assets/css/main.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: './plugins/vue-awesome-swiper.js', ssr: true },
-    { src: '~/plugins/vue-composition-api', mode: 'server' },
-  ],
+  plugins: [{ src: '~/plugins/vue-composition-api', mode: 'server' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -34,7 +31,6 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
-    '@nuxt/postcss8',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -46,12 +42,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    standalone: true,
     postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
+      plugins: {
+        'postcss-custom-properties': false,
       },
     },
     extend(config) {

@@ -19,63 +19,47 @@
         <div
           class="fade-right transition duration-200 flex flex-col justify-center h-full"
         >
-          <!-- <client-only> -->
-          <swiper
-            class="swiper h-[400px] md:h-auto md:aspect-video w-full rounded-l-md md:rounded-md overflow-hidden"
-            :options="{
-              spaceBetween: 20,
-              grabCursor: 'true',
-              autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-              },
-              parallax: true,
-              speed: 900,
-              navigation: {
-                nextEl: '.swiper-next',
-                prevEl: '.swiper-prev',
-              },
-            }"
-            :auto-update="false"
-            :auto-destroy="false"
-            :delete-instance-on-destroy="false"
-            :cleanup-styles-on-destroy="false"
+          <div
+            ref="swiper"
+            class="swiper swiper-container h-[400px] md:h-auto md:aspect-video w-full rounded-l-md md:rounded-md overflow-hidden"
           >
-            <swiper-slide
-              v-for="(item, index) in data"
-              :key="index"
-              class="w-full first:rounded-l-md overflow-hidden"
-            >
-              <div class="w-full h-full relative z-30">
-                <nuxt-picture
-                  v-if="item.url"
-                  preload
-                  class="block w-full h-full md:rounded-md overflow-hidden"
-                  :src="item.url"
-                  :title="item.title ? item.title : 'banner image'"
-                  :alt="item.alt ? item.alt : 'banner image'"
-                  :imgAttrs="{
-                    class:
-                      'loading opacity-100 transition duration-500 w-full h-full  object-cover overflow-hidden',
-                    loading: 'eager',
+            <div class="swiper-wrapper">
+              <div
+                v-for="(item, index) in data"
+                :key="index"
+                class="swiper-slide w-full first:rounded-l-md overflow-hidden"
+              >
+                <div class="w-full h-full relative z-30">
+                  <nuxt-picture
+                    v-if="item.url"
+                    preload
+                    class="block w-full h-full md:rounded-md overflow-hidden"
+                    :src="item.url"
+                    :title="item.title ? item.title : 'banner image'"
+                    :alt="item.alt ? item.alt : 'banner image'"
+                    :imgAttrs="{
+                      class:
+                        'loading opacity-100 transition duration-500 w-full h-full  object-cover overflow-hidden',
+                      loading: 'eager',
 
-                    'data-swiper-parallax': '150',
-                  }"
-                  @load="removeLoadingStyle($event)"
-                ></nuxt-picture>
-                <div
-                  class="hidden md:block w-full h-full absolute top-0 -left-[1px] z-40 bg-gradient-to-r from-gray-dark via-transparent to-transparent opacity-0 transition duration-300"
-                ></div>
-                <h2
-                  v-if="item.title"
-                  class="z-50 italic relative bottom-14 left-10"
-                  data-swiper-parallax="600"
-                >
-                  {{ item.title }}
-                </h2>
+                      'data-swiper-parallax': '150',
+                    }"
+                    @load="removeLoadingStyle($event)"
+                  ></nuxt-picture>
+                  <div
+                    class="hidden md:block w-full h-full absolute top-0 -left-[1px] z-40 bg-gradient-to-r from-gray-dark via-transparent to-transparent opacity-0 transition duration-300"
+                  ></div>
+                  <h2
+                    v-if="item.title"
+                    class="z-50 italic relative bottom-14 left-10"
+                    data-swiper-parallax="600"
+                  >
+                    {{ item.title }}
+                  </h2>
+                </div>
               </div>
-            </swiper-slide>
-          </swiper>
+            </div>
+          </div>
           <div class="hidden md:flex justify-end mt-3">
             <span
               class="swiper-prev group relative overflow-hidden w-14 h-14 flex items-center justify-center rounded-full border border-solid border-gray-light/50 hover:border-white transition text-gray-main"
@@ -198,7 +182,6 @@
               </span>
             </span>
           </div>
-          <!-- </client-only> -->
         </div>
       </div>
     </div>
@@ -206,16 +189,40 @@
 </template>
 
 <script>
+import { Swiper, Parallax, Navigation } from 'swiper'
+import 'swiper/swiper-bundle.min.css'
+
 export default {
   name: 'Hero',
   props: {
     data: {
-      type: Array,
+      type: Object,
     },
   },
+  data() {
+    return {
+      swiper: null,
+      swiperOptionsObject: {
+        modules: [Parallax, Navigation],
+        spaceBetween: 20,
+        grabCursor: 'true',
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        parallax: true,
+        speed: 900,
+        navigation: {
+          nextEl: '.swiper-next',
+          prevEl: '.swiper-prev',
+        },
+      },
+    }
+  },
   mounted() {
-    let swiperPosition = this.$refs.parallaxBanner
+    this.swiper = new Swiper(this.$refs.swiper, this.swiperOptionsObject)
 
+    let swiperPosition = this.$refs.parallaxBanner
     window.addEventListener('scroll', function () {
       swiperPosition.style.transform =
         'translateY(' + window.scrollY * 0.15 + 'px)'

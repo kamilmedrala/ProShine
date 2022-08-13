@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="md:h-screen 2xl:max-h-[800px] mb-32">
-      <Hero :data="pageData.images_banner" />
+      <Hero :data="pageData.section_banner" />
     </div>
     <Appear>
       <SectionBasic :data="pageData.section_about" />
