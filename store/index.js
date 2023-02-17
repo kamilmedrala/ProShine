@@ -14,7 +14,8 @@ export const state = () => ({
     },
   },
   offerPage:{
-
+  },
+  galleryPage:{
   }
 })
 
@@ -25,6 +26,10 @@ export const getters = {
 
   offerpageData: (state) => {
     return state.offerPage
+  },
+
+  gallerypageData: (state) => {
+    return state.galleryPage
   },
 }
 
