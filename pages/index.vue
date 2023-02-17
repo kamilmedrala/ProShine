@@ -86,21 +86,6 @@
         </template>
       </SectionBasic>
     </Appear>
-    <div class="w-full h-[500px] opacity-80 grayscale-[15%]">
-      <div class="w-full h-full">
-        <iframe
-          class="w-full"
-          width="600"
-          height="500"
-          id="gmap_canvas"
-          src="https://maps.google.com/maps?q=ProShine%20skrzyszow&t=&z=14&ie=UTF8&iwloc=&output=embed"
-          frameborder="0"
-          scrolling="no"
-          marginheight="0"
-          marginwidth="0"
-        ></iframe>
-      </div>
-    </div>
   </div>
 </template>
 

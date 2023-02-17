@@ -16,7 +16,11 @@ export const state = () => ({
   offerPage:{
   },
   galleryPage:{
-  }
+  },
+  policyPage:{
+  },
+  contactData:{
+  },
 })
 
 export const getters = {
@@ -31,6 +35,16 @@ export const getters = {
   gallerypageData: (state) => {
     return state.galleryPage
   },
+  
+  
+  policypageData: (state) => {
+    return state.policyPage
+  },
+
+  contactData: (state) => {
+    return state.contactData
+  },
+
 }
 
 export const mutations = {
@@ -50,6 +64,14 @@ export const actions = {
       )
       .then((response) => {
         commit('setAcfData', { response: response.acf, location: 'homepage'})
+      });
+    
+    await this.$axios
+      .$get(
+        'https://api.kamilmedrala.thecamels.eu/wp-json/wp/v2/pages/332?acf_format=standard'
+      )
+      .then((response) => {
+        commit('setAcfData', { response: response.acf, location: 'contactData'})
       })
   },
 }

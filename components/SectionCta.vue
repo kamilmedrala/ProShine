@@ -13,12 +13,12 @@
             : '<h3><em>Masz pytania?</em> <br> Porozmawiaj z nami!</h3>'
         "
       ></div>
-      <nuxt-link
-        to="/"
+      <a
+        :href="'tel:' + $store.getters.contactData.contact_page_content.tel"
         class="mt-auto relative z-20 px-5 py-2.5 bg-gold hover:bg-gold/70 text-gray-main text-lg md:text-xl italic transition duration-200"
       >
-        ZADZWOŃ TERAZ
-      </nuxt-link>
+        {{ $store.getters.contactData.contact_page_content.tel }}
+</a>
       <div
         ref="image"
         class="absolute -right-14 md:right-0 opacity-10 -bottom-10 md:-bottom-20 mix-blend-screen"
