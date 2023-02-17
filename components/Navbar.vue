@@ -3,7 +3,7 @@
     class="fixed left-0 top-0 w-full z-50 transition bg-gradient-to-b from-gray-dark to-transparent"
   >
     <div
-      class="relative px-[5%] flex justify-between transform duration-500"
+      class="relative px-[5%] mx-auto lg:container flex justify-between transform duration-500"
       :class="{ 'translate-y-[-50%] opacity-0': !loaded }"
     >
       <div class="z-[70]">

@@ -26,8 +26,8 @@ export default {
           link: '/oferta',
         },
         1: {
-          title: 'Realizacje',
-          link: '/realizacje',
+          title: 'Galeria',
+          link: '/galeria',
         },
         2: {
           title: 'Kontakt',

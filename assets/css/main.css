@@ -41,15 +41,17 @@
   span,
   b,
   string,
-  li {
+  li,
+  table {
     @apply font-main;
   }
 
-  h2 {
-    @apply text-gold text-2xl md:text-3xl font-extralight;
+  h2,
+  h3 {
+    @apply text-white text-2xl md:text-3xl font-extralight;
   }
 
-  p {
+  p,table {
     @apply text-white text-base md:text-xl font-extralight text-justify tracking-wide;
   }
 
@@ -59,6 +61,23 @@
   p a {
     @apply font-normal;
   }
+
+  em {
+    @apply text-gold italic;
+  }
+
+  tr{
+  @apply border-0 border-b border-white/10 last:border-b-0
+}
+
+td{
+  @apply px-2.5 py-2 text-left
+}
+
+table {
+  @apply mb-10 p-5 bg-gray-main
+}
+
 
   * {
     scrollbar-width: 10px;

@@ -1,12 +1,6 @@
 <template>
-  <div>
-    <Hero>
-      <template :slot="'left'">
-        <div class="px-[5%]">
-          <HeaderSection :title="'Kontakt'" />
-        </div>
-      </template>
-    </Hero>
+  <div class="pt-20 px-[5%] mx-auto lg:container overflow-hidden ">
+    <HeaderSection class="fade-left transition duration-200 " :title="'Kontakt'" :h1="true" />
   </div>
 </template>
 

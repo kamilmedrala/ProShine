@@ -6,7 +6,7 @@ export default {
   head: {
     title: 'ProShine',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'pl',
     },
     meta: [
       { charset: 'utf-8' },

@@ -1,72 +1,26 @@
 <template>
   <div
-    class="flex flex-col-reverse md:flex-row justify-between px-[5%] transition duration-200 mb-40"
-    :class="{ 'ml-[30%]': !data.section_image }"
+    class="flex flex-col-reverse md:flex-row justify-between items-center transition duration-200"
   >
-    <div
-      v-if="data.section_image"
-      class="w-full md:max-w-lg md:pr-10 fade-left transition duration-200"
-    >
-      <div class="will-change-transform overflow-hidden rounded-md" ref="image">
-        <nuxt-picture
-          :src="data.section_image.url"
-          :title="
-            data.section_image.title
-              ? data.section_image.title
-              : 'section side image'
-          "
-          :alt="
-            data.section_image.alt
-              ? data.section_image.alt
-              : 'section side image'
-          "
-          :imgAttrs="{
-            class:
-              'loading object-cover w-full max-h-[400px] transition duration-500 hover:scale-105',
-          }"
-          @load="removeLoadingStyle($event)"
-        ></nuxt-picture>
-      </div>
+    <slot name="left"></slot>
+    <div :class="['fade-right transition duration-200',{'md:pl-10 ':$slots.left}, {'md:pr-10 order-1 md:order-none ':$slots.right}]">
+      <div
+        v-if="data.section_content"
+        class="section-content mb-5 md:mb-10"
+        v-html="data.section_content"
+      ></div>
+      <!-- <ul
+        v-if="data.section_logos"
+        class="flex justify-center flex-wrap items-center w-full mb-10"
+      >
+        <li v-for="image in data.section_logos" :key="image.id"
+        class="w-32 md:w-1/3 lg:w-1/5 h-24 md:h-32 py-2.5 px-2.5 md:px-5 object-contain filter saturate-0 hover:saturate-100 transition duration-200">
+          <nuxt-picture class="w-full h-full" :imgAttrs="{class: 'w-full h-full object-contain'}" v-if="image.full_image_url" :src="image.full_image_url"/>
+        </li>
+      </ul> -->
     </div>
-    <div
-      class="overflow-hidden"
-      :class="{ 'md:basis-[66%] shrink-0': data.section_image }"
-    >
-      <div class="fade-right transition duration-200">
-        <h2
-          v-if="data.section_title"
-          class="mb-5 pl-5 italic"
-          v-html="data.section_title"
-        ></h2>
-        <div
-          v-if="data.section_content"
-          class="mb-10"
-          v-html="data.section_content"
-        ></div>
-        <div
-          v-if="data.section_logos"
-          class="flex justify-center gap-5 md:gap-12 flex-wrap items-center mb-10"
-        >
-          <div
-            class="basis-24 md:basis-48 h-32"
-            v-for="(item, index) in data.section_logos"
-            :key="index"
-          >
-            <nuxt-picture
-              v-if="item.url"
-              class="h-full block"
-              :src="item.url"
-              :title="item.title ? item.title : 'logo'"
-              :alt="item.alt ? item.alt : 'logo'"
-              :imgAttrs="{
-                class:
-                  'w-full h-full object-contain filter saturate-0 hover:scale-[102%] hover:saturate-100 transition duration-200',
-              }"
-            ></nuxt-picture>
-          </div>
-        </div>
-      </div>
-    </div>
+    <slot name="right"></slot>
+
   </div>
 </template>
 
@@ -79,26 +33,36 @@ export default {
       required: true,
     },
   },
-  mounted() {
-    let imagePosition = this.$refs.image
-
-    window.addEventListener('scroll', function () {
-      let offsetY = 0
-      if (window.innerWidth < 768) {
-        offsetY = 0
-      } else {
-        offsetY = window.scrollY
-      }
-      imagePosition.style.transform = 'translateY(' + offsetY * 0.15 + 'px)'
-    })
-    console.log(imagePosition)
-  },
-  methods: {
-    removeLoadingStyle(event) {
-      event.target.classList.remove('loading')
-    },
-  },
 }
 </script>
 
-<style></style>
+<style lang="postcss" scoped>
+.section-logos >>> p {
+  @apply flex justify-center flex-wrap items-center w-full mb-10;
+}
+
+.section-content >>> li {
+  @apply text-white text-base md:text-xl font-extralight text-justify tracking-wide;
+}
+
+.section-content >>> h2 {
+  @apply mb-5 pl-5 md:pl-10 italic text-gold
+}
+
+.section-content >>> ul {
+    @apply pl-5 md:pl-7 list-disc
+  }
+
+.section-content >>> ol {
+    @apply pl-5 list-decimal
+  }
+
+.section-content >>> li {
+    @apply mb-5
+  }
+
+.section-content >>> table {
+  @apply text-white border-0
+}
+
+</style>

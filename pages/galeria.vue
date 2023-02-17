@@ -1,12 +1,6 @@
 <template>
-  <div>
-    <Hero>
-      <template :slot="'left'">
-        <div class="px-[5%]">
-          <HeaderSection :title="'Realizacje'" />
-        </div>
-      </template>
-    </Hero>
+  <div class="pt-20 px-[5%] mx-auto lg:container overflow-hidden ">
+    <HeaderSection class="fade-left transition duration-200 " :title="'Galeria'" :h1="true" />
   </div>
 </template>
 

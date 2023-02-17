@@ -12,7 +12,7 @@ module.exports = {
         gold: '#BEB396',
         gray: {
           light: '#E5E5E5',
-          main: '#2F2F2C',
+          main: '#262625',
           dark: '#1C1C1C',
         },
       },

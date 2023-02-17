@@ -6,7 +6,8 @@
       class="fade-left transition duration-200 flex items-center shrink-0 relative pointer-events-none basis-1/2 h-full z-40"
     >
       <div class="pl-[5vw]">
-        <HeaderSection :title="'Pro Shine'" />
+        <HeaderSection :title="'Pro Shine'" :h1="true" />
+        <StyledButton :text="'Poznaj ofertę'" :url="'/oferta'" :appear="true" class="ml-5 md:ml-10"/>
       </div>
     </div>
     <div
@@ -49,13 +50,13 @@
                   <div
                     class="hidden md:block w-full h-full absolute top-0 -left-[1px] z-40 bg-gradient-to-r from-gray-dark via-transparent to-transparent opacity-0 transition duration-300"
                   ></div>
-                  <h2
+                  <span
                     v-if="item.title"
-                    class="z-50 italic relative bottom-14 left-10"
+                    class="z-50 italic text-gold text-2xl md:text-3xl font-extralight relative bottom-14 left-10"
                     data-swiper-parallax="600"
                   >
                     {{ item.title }}
-                  </h2>
+                  </span>
                 </div>
               </div>
             </div>
@@ -189,52 +190,51 @@
 </template>
 
 <script>
-import { Swiper, Parallax, Navigation } from 'swiper'
+import { Swiper, Parallax, Navigation, Autoplay } from 'swiper'
 import 'swiper/swiper-bundle.min.css'
+import StyledButton from './StyledButton.vue'
 
 export default {
-  name: 'Hero',
-  props: {
-    data: {
-      type: Object,
-    },
-  },
-  data() {
-    return {
-      swiper: null,
-      swiperOptionsObject: {
-        modules: [Parallax, Navigation],
-        spaceBetween: 20,
-        grabCursor: 'true',
-        autoplay: {
-          delay: 4000,
-          disableOnInteraction: false,
+    name: "Hero",
+    props: {
+        data: {
+            type: Object,
         },
-        parallax: true,
-        speed: 900,
-        navigation: {
-          nextEl: '.swiper-next',
-          prevEl: '.swiper-prev',
-        },
-      },
-    }
-  },
-  mounted() {
-    this.swiper = new Swiper(this.$refs.swiper, this.swiperOptionsObject)
-
-    let swiperPosition = this.$refs.parallaxBanner
-    window.addEventListener('scroll', function () {
-      swiperPosition.style.transform =
-        'translateY(' + window.scrollY * 0.15 + 'px)'
-    })
-  },
-  methods: {
-    removeLoadingStyle(event) {
-      event.target.classList.remove('loading')
-      event.target.parentNode.nextElementSibling.style.opacity = '90%'
     },
-  },
+    data() {
+        return {
+            swiper: null,
+            swiperOptionsObject: {
+                modules: [Parallax, Navigation, Autoplay],
+                spaceBetween: 20,
+                grabCursor: "true",
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                parallax: true,
+                speed: 900,
+                navigation: {
+                    nextEl: ".swiper-next",
+                    prevEl: ".swiper-prev",
+                },
+            },
+        };
+    },
+    mounted() {
+        this.swiper = new Swiper(this.$refs.swiper, this.swiperOptionsObject);
+        let swiperPosition = this.$refs.parallaxBanner;
+        window.addEventListener("scroll", function () {
+            swiperPosition.style.transform =
+                "translateY(" + window.scrollY * 0.15 + "px)";
+        });
+    },
+    methods: {
+        removeLoadingStyle(event) {
+            event.target.classList.remove("loading");
+            event.target.parentNode.nextElementSibling.style.opacity = "90%";
+        },
+    },
+    components: { StyledButton }
 }
 </script>
-
-<style scoped></style>

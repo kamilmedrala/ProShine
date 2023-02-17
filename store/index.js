@@ -13,17 +13,24 @@ export const state = () => ({
       },
     },
   },
+  offerPage:{
+
+  }
 })
 
 export const getters = {
   homepageData: (state) => {
     return state.homepage
   },
+
+  offerpageData: (state) => {
+    return state.offerPage
+  },
 }
 
 export const mutations = {
-  setAcfData(state, response) {
-    state.homepage = response
+  setAcfData(state, payload) {
+    state[payload.location] = payload.response
   },
   setMediaData(state, response) {
     state.homepage.logos = response
@@ -37,7 +44,7 @@ export const actions = {
         'https://api.kamilmedrala.thecamels.eu/wp-json/wp/v2/pages/2?acf_format=standard'
       )
       .then((response) => {
-        commit('setAcfData', response.acf)
+        commit('setAcfData', { response: response.acf, location: 'homepage'})
       })
   },
 }
