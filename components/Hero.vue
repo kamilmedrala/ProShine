@@ -29,7 +29,7 @@
               <div
                 v-for="(item, index) in data"
                 :key="index"
-                class="swiper-slide w-full first:rounded-l-md overflow-hidden"
+                class="swiper-slide w-full h-full first:rounded-l-md overflow-hidden"
               >
                 <div class="w-full h-full relative z-30">
                   <nuxt-picture
