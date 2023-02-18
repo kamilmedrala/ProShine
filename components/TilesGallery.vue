@@ -10,10 +10,8 @@
           :src="image.full_image_url"
           class="h-full cursor-pointer"
           :imgAttrs="{
-            class: 'loading object-cover h-full w-full',
-            loading: index < 10 ? 'eager' : 'lazy',
+            class: 'object-cover h-full w-full',
           }"
-          @load="removeLoadingStyle($event)"
           @click="modalOpen(image.full_image_url)"
           placeholder
         />
@@ -24,13 +22,13 @@
       class="fixed inset-0 bg-gray-dark/70 px-6 md:px-10 pt-24 pb-10 transition duration-300"
       :class="[
         modalActive
-          ? 'opacity-1 backdrop-blur-md'
+          ? 'opacity-1 backdrop-blur-md blur-fix'
           : 'opacity-0 pointer-events-none',
       ]"
       @click="modalClose($event)"
     >
       <div class="h-full flex justify-center items-center">
-        <div class="relative max-h-full md:h-full">
+        <div class="relative h-full">
           <img
             :src="modalImgUrl"
             class="loading h-full object-contain transition duration-300"
@@ -38,7 +36,7 @@
             @load="removeLoadingStyle($event)"
           />
           <span
-            class="absolute top-0 -right-10 w-10 h-10 pl-2 text-white text-3xl cursor-pointer transition"
+            class="absolute top-0 -right-5 w-10 h-10 pl-2 text-white text-3xl cursor-pointer transition"
             >X</span
           >
         </div>

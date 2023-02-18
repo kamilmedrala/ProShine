@@ -47,7 +47,7 @@
         class="z-[60] absolute top-0 left-0 h-screen w-screen pt-20 md:pt-0 md:h-auto md:w-auto md:relative md:flex items-center justify-end transition duration-300"
         :class="
           sideMenu
-            ? 'bg-gray-dark/80 md:bg-transparent backdrop-blur-md md:backdrop-blur-0'
+            ? 'bg-gray-dark/80 md:bg-transparent backdrop-blur-md md:backdrop-blur-0 blur-fix'
             : 'pointer-events-none md:pointer-events-auto'
         "
         @click="toggleSideMenu()"

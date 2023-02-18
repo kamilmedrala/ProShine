@@ -17,6 +17,7 @@
         ref="parallaxBanner"
         class="relative pl-[15%] md:pl-0 md:absolute md:right-[2.5vw] w-full h-full overflow-hidden md:w-[62vw] mb-6 md:mb-0 will-change-transform"
       >
+      <KeepAlive>
         <div
           class="fade-right transition duration-200 flex flex-col justify-center h-full"
         >
@@ -184,6 +185,7 @@
             </span>
           </div>
         </div>
+      </KeepAlive>
       </div>
     </div>
   </div>

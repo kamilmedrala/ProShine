@@ -51,7 +51,8 @@
     @apply text-white text-2xl md:text-3xl font-extralight;
   }
 
-  p,table {
+  p,
+  table {
     @apply text-white text-base md:text-xl font-extralight text-justify tracking-wide;
   }
 
@@ -66,18 +67,22 @@
     @apply text-gold italic;
   }
 
-  tr{
-  @apply border-0 border-b border-white/10 last:border-b-0
-}
+  tr {
+    @apply border-0 border-b border-white/10 last:border-b-0;
+  }
 
-td{
-  @apply px-2.5 py-2 text-left
-}
+  td {
+    @apply px-2.5 py-2 text-left;
+  }
 
-table {
-  @apply mb-10 p-5 bg-gray-main
-}
+  table {
+    @apply mb-10 p-5 bg-gray-main;
+  }
 
+  .blur-fix{
+    @apply backdrop-brightness-100 backdrop-contrast-100 backdrop-grayscale-0 backdrop-hue-rotate-0 backdrop-invert-0 backdrop-opacity-100 backdrop-saturate-100 backdrop-sepia-0
+
+  }
 
   * {
     scrollbar-width: 10px;
