@@ -69,20 +69,33 @@
         :data="pageData.section_compare1"
       >
         <template #left>
-          <ImageCompare :class="'shrink-0'" :data="pageData.section_compare1" />
+          <ImageBlock :class="'shrink-0'" :data="pageData.section_compare1" />
         </template>
       </SectionBasic>
     </Appear>
     <Appear>
       <SectionCta class="mb-20 md:mb-[150px]" />
     </Appear>
+    <!-- <div class="mb-20 md:mb-[150px]">
+      <div class="px-[5%] mx-auto lg:container">
+        <Appear>
+          <HeaderSection title="Opinie" class="mb-10 md:mb-16" />
+        </Appear>
+      </div>
+      <Appear>
+        <SwiperGallery
+          class="mb-5 md:mb-10"
+          :data="pageData.photo_gallery['section_homepage_gallery'][1]"
+        />
+      </Appear>
+    </div> -->
     <Appear>
       <SectionBasic
         class="mb-10 md:mb-[120px] px-[5%] mx-auto lg:container"
         :data="pageData.section_compare2"
       >
         <template #right>
-          <ImageCompare :class="'shrink-0'" :data="pageData.section_compare2" />
+          <ImageBlock :class="'shrink-0'" :data="pageData.section_compare2" />
         </template>
       </SectionBasic>
     </Appear>
@@ -96,7 +109,7 @@ import HeaderSection from '../components/HeaderSection.vue'
 import OfferTile from '../components/OfferTile.vue'
 import SectionCta from '../components/SectionCta.vue'
 import SwiperGallery from '../components/SwiperGallery.vue'
-import ImageCompare from '../components/ImageCompare.vue'
+import ImageBlock from '../components/ImageBlock.vue'
 import StyledButton from '../components/StyledButton.vue'
 import Counters from '../components/Counters.vue'
 import SectionOffer from '../components/SectionOffer.vue'
@@ -110,7 +123,7 @@ export default {
     SectionCta,
     HeaderSection,
     SwiperGallery,
-    ImageCompare,
+    ImageBlock,
     StyledButton,
     Counters,
     SectionOffer,

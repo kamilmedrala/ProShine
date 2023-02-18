@@ -84,11 +84,27 @@
       </div>
     </div>
   </div>
+  <div v-else-if="data.image_left || data.image_right" ref="singleImageContainer" class="relative w-full md:w-1/3 aspect-square overflow-hidden">
+    <div ref="singleImage" class="absolute inset-x-0 inset-y-[-50px]">
+      <nuxt-picture
+          v-if="data.image_left.url"
+          :src="data.image_left.url"
+          class="w-full h-full"
+          :imgAttrs="{ class: 'w-full h-full object-cover ' }"
+        />
+        <nuxt-picture
+          v-else-if="data.image_right.url"
+          :src="data.image_right.url"
+          class="w-full h-full"
+          :imgAttrs="{ class: 'w-full h-full object-cover ' }"
+        />
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'ImageCompare',
+  name: 'ImageBlock',
   data() {
     return {
       clippedX: 0,
@@ -103,7 +119,20 @@ export default {
     },
   },
   mounted() {
-    this.clippedX = this.$refs.compareContainer.clientWidth / 2
+    if (this.$refs.compareContainer) {
+      this.clippedX = this.$refs.compareContainer.clientWidth / 2
+    }
+
+    if (this.$refs.singleImage) {
+      const parallaxOffset = 100
+      const imagePosition = this.$refs.singleImage
+      const ctaContainer = this.$refs.singleImageContainer
+  
+      window.addEventListener('scroll', function () {
+        let offsetTopPage = ctaContainer.getBoundingClientRect().top
+        imagePosition.style.transform = 'translateY(' + (-offsetTopPage + parallaxOffset/2)*(parallaxOffset/this.window.innerHeight) + 'px)'
+      })
+    }
   },
   methods: {
     setClippedX(e) {
