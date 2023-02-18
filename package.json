@@ -6,9 +6,10 @@
     "dev": "nuxt",
     "dev:external": "nuxt --hostname 192.168.0.22 --port 8000",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
+    "generate": "nuxt generate",
+    "generate-deploy": "nuxt generate && push-dir --dir=dist --branch=gh-pages --cleanup",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
     "lint:prettier": "prettier --check .",
     "lint": "npm run lint:prettier",
     "lintfix": "prettier --write --list-different ."
