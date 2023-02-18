@@ -39,6 +39,8 @@
                     :src="item.url"
                     :title="item.title ? item.title : 'banner image'"
                     :alt="item.alt ? item.alt : 'banner image'"
+                    height="600"
+                    width="800"
                     :imgAttrs="{
                       class:
                         'loading opacity-100 transition duration-500 w-full h-full  object-cover overflow-hidden',

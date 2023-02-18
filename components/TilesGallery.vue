@@ -4,16 +4,19 @@
       <div
         v-for="(image, index) in data"
         :key="index"
-        class="flex-grow h-[150px] sm:h-[230px] md:h-[300px] lg:h-[450px]"
+        ref="images"
+        class="shrink-0 before-load flex-grow h-[150px] sm:h-[230px] md:h-[300px] lg:h-[370px] xl:h-[450px]"
       >
         <nuxt-picture
           :src="image.full_image_url"
-          class="h-full cursor-pointer"
+          class="h-full cursor-pointer flex group overflow-hidden"
+          fit="cover"
+          sizes="100px xs:150px sm:200px md:400px lg:800px"
           :imgAttrs="{
-            class: 'object-cover h-full w-full',
+            class: 'loading object-cover h-full w-auto flex-grow group-hover:scale-[101%] transition duration-300',
           }"
           @click="modalOpen(image.full_image_url)"
-          placeholder
+          @load="removeLoadingStyle($event,index)"
         />
       </div>
     </div>
@@ -58,8 +61,14 @@ export default {
     }
   },
   methods: {
-    removeLoadingStyle(event) {
-      event.target.classList.remove('loading')
+    removeLoadingStyle(event,index) {
+      let imgEl = event.target 
+      imgEl.classList.remove('loading')
+
+      if (typeof index == 'number') {
+          this.$refs.images[index]?.classList.remove('before-load')
+      }
+
     },
     modalOpen(imageUrl) {
       this.modalActive = true
@@ -82,5 +91,10 @@ export default {
 <style scoped>
 img.loading ~ span {
   @apply opacity-0;
+}
+
+.before-load,
+.before-load div{
+  @apply w-full
 }
 </style>
