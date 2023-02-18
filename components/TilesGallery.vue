@@ -36,7 +36,7 @@
             @load="removeLoadingStyle($event)"
           />
           <span
-            class="absolute top-0 -right-5 w-10 h-10 pl-2 text-white text-3xl cursor-pointer transition"
+            class="absolute top-0 -right-5 md:-right-10 w-10 h-10 pl-2 text-white text-3xl cursor-pointer transition"
             >X</span
           >
         </div>
