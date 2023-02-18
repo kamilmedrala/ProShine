@@ -25,7 +25,7 @@
             ref="swiper"
             class="swiper swiper-container h-[400px] md:h-auto md:aspect-video w-full rounded-l-md md:rounded-md overflow-hidden"
           >
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper h-full">
               <div
                 v-for="(item, index) in data"
                 :key="index"
