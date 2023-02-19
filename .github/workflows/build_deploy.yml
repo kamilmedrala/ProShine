@@ -2,12 +2,12 @@ name: Build-deploy
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   web-deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Get latest code
         uses: actions/checkout@v2.1.0
