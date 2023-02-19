@@ -42,7 +42,7 @@ export default {
   modules: ['@nuxtjs/axios'],
 
   image: {
-    domains: ['https://api.kamilmedrala.thecamels.eu/'],
+    domains: ['https://api.proshinedetailing.pl/'],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

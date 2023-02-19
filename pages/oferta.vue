@@ -22,7 +22,7 @@ export default {
   async asyncData({$axios,store}) {
     await $axios
       .$get(
-        'https://api.kamilmedrala.thecamels.eu/wp-json/wp/v2/pages/43?acf_format=standard'
+        'https://api.proshinedetailing.pl/wp-json/wp/v2/pages/43?acf_format=standard'
       )
       .then((response) => {
         store.commit('setAcfData', { response: response.acf, location: 'offerPage' })
