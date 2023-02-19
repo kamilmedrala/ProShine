@@ -18,7 +18,7 @@ jobs:
       with: 
         node-version: '16.17.0'
 
-    - name: Build Project
+    - name: Build Website
       run: npm install
       run: npm run generate
 
