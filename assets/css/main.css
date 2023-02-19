@@ -79,9 +79,8 @@
     @apply mb-10 p-5 bg-gray-main;
   }
 
-  .blur-fix{
-    @apply backdrop-brightness-100 backdrop-contrast-100 backdrop-grayscale-0 backdrop-hue-rotate-0 backdrop-invert-0 backdrop-opacity-100 backdrop-saturate-100 backdrop-sepia-0
-
+  .blur-fix {
+    @apply backdrop-brightness-100 backdrop-contrast-100 backdrop-grayscale-0 backdrop-hue-rotate-0 backdrop-invert-0 backdrop-opacity-100 backdrop-saturate-100 backdrop-sepia-0;
   }
 
   * {
