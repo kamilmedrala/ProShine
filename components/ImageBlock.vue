@@ -85,7 +85,7 @@
     </div>
   </div>
   <div v-else-if="data.image_left || data.image_right" ref="singleImageContainer" class="relative w-full md:w-1/3 aspect-square overflow-hidden">
-    <div ref="singleImage" class="absolute inset-x-0 inset-y-[-50px]">
+    <div ref="singleImage" class="absolute inset-x-0 inset-y-[-40px]">
       <nuxt-picture
           v-if="data.image_left.url"
           :src="data.image_left.url"
@@ -124,7 +124,7 @@ export default {
     }
 
     if (this.$refs.singleImage) {
-      const parallaxOffset = 100
+      const parallaxOffset = 80
       const imagePosition = this.$refs.singleImage
       const ctaContainer = this.$refs.singleImageContainer
   
