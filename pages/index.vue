@@ -22,12 +22,7 @@
         <HeaderSection title="Oferta" class="mb-10 md:mb-16" />
       </Appear>
       <SectionOffer
-        :data="[
-          pageData.oferta1,
-          pageData.oferta2,
-          pageData.oferta3,
-          pageData.oferta4,
-        ]"
+        :data="offers"
       />
       <Appear>
         <div class="flex justify-center mt-14">
@@ -76,19 +71,14 @@
     <Appear>
       <SectionCta class="mb-20 md:mb-[150px]" />
     </Appear>
-    <!-- <div class="mb-20 md:mb-[150px]">
+    <div v-if="reviews.length" class="mb-20 md:mb-[150px]">
       <div class="px-[5%] mx-auto lg:container">
         <Appear>
           <HeaderSection title="Opinie" class="mb-10 md:mb-16" />
         </Appear>
       </div>
-      <Appear>
-        <SwiperGallery
-          class="mb-5 md:mb-10"
-          :data="pageData.photo_gallery['section_homepage_gallery'][1]"
-        />
-      </Appear>
-    </div> -->
+      <SectionOpinions :data="reviews" />
+    </div>
     <Appear>
       <SectionBasic
         class="mb-10 md:mb-[120px] px-[5%] mx-auto lg:container"
@@ -113,6 +103,7 @@ import ImageBlock from '../components/ImageBlock.vue'
 import StyledButton from '../components/StyledButton.vue'
 import Counters from '../components/Counters.vue'
 import SectionOffer from '../components/SectionOffer.vue'
+import SectionOpinions from '../components/SectionOpinions.vue'
 
 export default {
   name: 'Homepage',
@@ -127,11 +118,31 @@ export default {
     StyledButton,
     Counters,
     SectionOffer,
+    SectionOpinions,
   },
   data() {
     return {
       pageData: this.$store.getters.homepageData,
     }
   },
+  computed: {
+    offers(){
+      return[
+            this.pageData.oferta1,
+            this.pageData.oferta2,
+            this.pageData.oferta3,
+            this.pageData.oferta4,
+          ]},
+
+      reviews(){
+        return [
+          this.pageData.review1,
+          this.pageData.review2,
+          this.pageData.review3,
+          this.pageData.review4,
+          this.pageData.review5,
+          this.pageData.review6,
+        ]}
+  }
 }
 </script>
