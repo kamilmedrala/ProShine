@@ -4,15 +4,14 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'ProShine',
+    title: 'PRO SHINE - profesjonalne usługi detailingowe pojazdów',
     htmlAttrs: {
       lang: 'pl',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'description', name: 'description', content: 'PRO SHINE - Detailing Skrzyszów. Przywróć swój samochód do stanu salonowego! Auto-detailing, regeneracja reflektorów, powłoki ceramiczne, pranie wnętrz, ozonowanie, przygotowania przed sprzedarzą i wiele innych! ' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
