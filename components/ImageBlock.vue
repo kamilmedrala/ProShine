@@ -85,7 +85,7 @@
     </div>
   </div>
   <div v-else-if="data.image_left || data.image_right" ref="singleImageContainer" class="relative w-full md:w-1/3 aspect-square overflow-hidden">
-    <div ref="singleImage" class="absolute inset-x-0 inset-y-[-40px]">
+    <div ref="singleImage" class="absolute inset-x-0 inset-y-[-25px]">
       <nuxt-picture
           v-if="data.image_left.url"
           :src="data.image_left.url"
@@ -124,12 +124,12 @@ export default {
     }
 
     if (this.$refs.singleImage) {
-      const parallaxOffset = 80
+      const parallaxOffset = 50
       const imagePosition = this.$refs.singleImage
-      const ctaContainer = this.$refs.singleImageContainer
+      const imageContainer = this.$refs.singleImageContainer
   
       window.addEventListener('scroll', function () {
-        let offsetTopPage = ctaContainer.getBoundingClientRect().top
+        let offsetTopPage = imageContainer.getBoundingClientRect().top
         imagePosition.style.transform = 'translateY(' + (-offsetTopPage + parallaxOffset/2)*(parallaxOffset/this.window.innerHeight) + 'px)'
       })
     }

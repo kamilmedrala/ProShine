@@ -8,7 +8,7 @@
         <div
           v-for="(item, index) in reviewsArray"
           :key="index"
-          class="swiper-slide basis-3/4 md:basis-1/2 lg:basis-auto"
+          class="swiper-slide basis-4/5 md:basis-1/2 lg:basis-auto"
         >
           <div class="relative w-full pl-0 p-5 mr-5 lg:mr-0 overflow-hidden">
             <span class="absolute z-10 right-12 md:right-5 -top-20 text-[180px] text-gray-main opacity-60 select-none"

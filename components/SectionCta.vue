@@ -1,5 +1,5 @@
 <template>
-  <div class="px-[5%] mx-auto container"
+  <div class="px-[5%] mx-auto lg:container"
   ref="ctaContainer"
   >
     <div
@@ -21,7 +21,7 @@
 </a>
       <div
         ref="image"
-        class="absolute -right-14 md:right-0 opacity-10 bottom-0"
+        class="absolute left-1 md:left-auto right-1 md:right-0 opacity-10 -bottom-14 top-[70px] md:top-14 md:w-2/3"
       >
         <svg class="w-full" width="799" height="264" viewBox="0 0 799 264" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M728 219.969C727.978 234.01 729.427 241.995 733 244.969H747.5L745 231.969L795.5 219.969L798 186.469L795.5 179.469L793 157.469L778 135.969L775 109.469L779 88.4689L774 80.4689L751 58.469V44.969L775 26.969L781 5.46897L739.5 7.96897L723.5 17.469L662 14.969C538.121 0.566461 478.085 -2.87752 400.5 5.46897L358.5 14.969C292.865 38.7968 258.172 53.6863 199.5 82.969C193.776 85.5811 190.23 86.9466 182.5 88.969C177.006 88.5994 173.24 88.56 164.5 88.969C71.0378 105.689 36.5758 117.733 7 143.969L10 151.969M728 219.969C710 275.469 629 273.469 611.5 221.969M728 219.969C732.438 200.516 733.277 189.482 724 168.969M611.5 221.969C614.488 232.166 616.505 235.993 621.637 239.969H600V244.969L235 248.469L232.5 242.969V230.469H217.5M611.5 221.969C606.703 203.51 606.868 193.313 613.5 175.469M217.5 230.469C194 279.469 120.5 267.469 107 230.469M217.5 230.469C227.755 206.426 228.05 193.378 217.5 170.969M107 230.469L114.5 242.969L1 239.469L7 236.469V225.969V194.469V186.469L5.5 175.969L10 172.969V151.969M107 230.469C98.4425 205.531 98.6325 191.805 111.5 167.969M10 151.969L19.5 175.969C20.329 180.32 18.0836 182.297 12 185.469M10 195.469C27.6583 191.22 38.9882 189.656 65.5 190.469M66.5 219.969L23 221.469M36.5 218.469L23.5 218.969M54.5 207.469C54.412 207.475 54.3244 207.481 54.2373 207.486M54.2373 207.486C39.4824 208.469 37.9853 208.516 35.5 216.469C36.5057 218.332 42.0408 218.476 59 217.469L54.2373 207.486ZM19.5 226.969V207.469C32.2093 202.984 39.4176 201.284 52.5 199.969C57.5 199.969 66.1001 214.212 73 226.969C74.4132 230.911 53.7839 229.335 19.5 226.969Z" stroke="white"/>
@@ -43,14 +43,16 @@ export default {
     data: Object,
   },
   mounted() {
-    const imagePosition = this.$refs.image
-    const ctaContainer = this.$refs.ctaContainer
 
-    window.addEventListener('scroll', function () {
-      let offsetY = window.scrollY
-      let offsetTopPage = ctaContainer.parentElement.offsetTop
-      imagePosition.style.transform = 'translateY(' + ((offsetY - offsetTopPage + 1000)*0.15) + 'px)'
-    })
+    const parallaxOffset = 12
+    
+      const imagePosition = this.$refs.image
+      const ctaContainer = this.$refs.ctaContainer
+  
+      window.addEventListener('scroll', function () {
+        let offsetTopPage = ctaContainer.getBoundingClientRect().top
+        imagePosition.style.transform = 'translateY(' + (-offsetTopPage + parallaxOffset/2)*(parallaxOffset/this.window.innerHeight) + 'px)'
+      })
   },
 }
 </script>

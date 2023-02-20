@@ -64,7 +64,7 @@
         :data="pageData.section_compare1"
       >
         <template #left>
-          <ImageBlock :class="'shrink-0'" :data="pageData.section_compare1" />
+          <ImageBlock v-if="pageData.section_compare1.image_left || pageData.section_compare1.image_right" :class="'shrink-0'" :data="pageData.section_compare1" />
         </template>
       </SectionBasic>
     </Appear>
@@ -85,7 +85,7 @@
         :data="pageData.section_compare2"
       >
         <template #right>
-          <ImageBlock :class="'shrink-0'" :data="pageData.section_compare2" />
+          <ImageBlock v-if="pageData.section_compare2.image_left || pageData.section_compare2.image_right" :class="'shrink-0'" :data="pageData.section_compare2" />
         </template>
       </SectionBasic>
     </Appear>
