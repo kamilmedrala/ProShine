@@ -21,6 +21,11 @@
             class="inline-block pointer-events-auto relative z-20 px-10 py-2.5 text-gray-main text-lg md:text-xl italic transition duration-200"
             >{{ text }}
           </a>
+          <button
+            v-else
+            class="appearance-none inline-block pointer-events-auto relative z-20 px-10 py-2.5 text-gray-main text-lg md:text-xl italic transition duration-200"
+            >{{ text }}
+          </button>
           <span class="background absolute top-0 left-0 w-full h-full bg-gold group-hover:bg-gold/70 transition duration-200"></span>
         </div>
     </div>

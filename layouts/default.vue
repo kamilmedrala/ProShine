@@ -4,6 +4,7 @@
     <div class="z-10 md:min-h-screen flex flex-col justify-between">
       <Navbar :menu="menuItems" />
       <Nuxt />
+      <PopupCookies />
       <Footer class="self-end" :menu="footerItems" />
     </div>
   </div>
@@ -13,12 +14,15 @@
 import Navbar from '../components/Navbar.vue'
 import Background from '../components/Background.vue'
 import Footer from '../components/Footer.vue'
+import PopupCookies from '../components/PopupCookies.vue'
 
 export default {
   components: {
     Navbar,
     Background,
-    Footer
+    Footer,
+    PopupCookies,
+    PopupCookies
   },
   scrollToTop: true,
   data() {

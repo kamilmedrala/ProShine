@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "dev:external": "nuxt --hostname 192.168.0.22 --port 8000",
+    "dev:external": "nuxt --hostname 192.168.0.20 --port 3000",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
     "generate": "nuxt generate",
     "generate-deploy": "nuxt generate && push-dir --dir=dist --branch=gh-pages --cleanup",
@@ -15,13 +15,16 @@
     "lintfix": "prettier --write --list-different ."
   },
   "dependencies": {
+    "@abbo/nuxt-google-analytics": "^2.5.0",
     "@nuxtjs/axios": "^5.13.6",
     "@vue/composition-api": "^1.6.1",
     "@vueuse/core": "^8.4.2",
+    "@vueuse/integrations": "^10.1.2",
     "core-js": "^3.19.3",
     "lodash": "^4.17.21",
     "nuxt": "^2.15.8",
     "swiper": "^8.3.2",
+    "universal-cookie": "^4.0.4",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
@@ -30,12 +33,12 @@
   "devDependencies": {
     "@nuxt/image": "^0.6.2",
     "@nuxt/postcss8": "^1.1.3",
-    "@nuxtjs/tailwindcss": "^4.2.1",
+    "@nuxtjs/tailwindcss": "^6.1.0",
     "autoprefixer": "^10.4.4",
     "eslint-config-prettier": "^8.3.0",
     "postcss": "^8.4.12",
     "prettier": "^2.5.1",
-    "tailwindcss": "^3.0.23",
-    "push-dir": "^0.4.1"
+    "push-dir": "^0.4.1",
+    "tailwindcss": "^3.3.2"
   }
 }

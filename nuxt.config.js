@@ -1,7 +1,17 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  googleAnalytics: {
+    id: 'G-J7B0YMGL2Y', //process.env.GOOGLE_ANALYTICS_ID,
+    useGtag: true,
+    enabled: false,
+    debug: {
+      sendHitTask: true
+    },
+    autoTracking: {
+      screenview: true
+    }
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'PRO SHINE - profesjonalne usługi detailingowe pojazdów',
@@ -11,7 +21,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'PRO SHINE - Detailing Skrzyszów. Przywróć swój samochód do stanu salonowego! Auto-detailing, regeneracja reflektorów, powłoki ceramiczne, pranie wnętrz, ozonowanie, przygotowania przed sprzedarzą i wiele innych! ' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'PRO SHINE - Detailing Skrzyszów. Przywróć swój samochód do stanu salonowego! Auto-detailing, regeneracja reflektorów, powłoki ceramiczne, pranie wnętrz, ozonowanie, przygotowania przed sprzedarzą i wiele innych! ',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -20,9 +35,7 @@ export default {
   css: ['@/assets/css/main.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: '~/plugins/vue-composition-api', mode: 'server' },
-],
+  plugins: [{ src: '~/plugins/vue-composition-api', mode: 'server' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -32,6 +45,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
+    '@abbo/nuxt-google-analytics'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

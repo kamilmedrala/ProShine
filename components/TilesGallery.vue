@@ -15,7 +15,6 @@
           :imgAttrs="{
             class: 'loading object-cover h-full w-auto flex-grow group-hover:scale-[101%] transition duration-300',
           }"
-          :loading="index > 10 ? 'lazy' : 'eager'"
           @click="modalOpen(image.full_image_url)"
           @load="removeLoadingStyle($event,index)"
         />
