@@ -90,12 +90,14 @@
           v-if="data.image_left.url"
           :src="data.image_left.url"
           class="w-full h-full"
+          sizes="100px xs:150px sm:200px md:400px lg:600px"
           :imgAttrs="{ class: 'w-full h-full object-cover ' }"
         />
         <nuxt-picture
           v-else-if="data.image_right.url"
           :src="data.image_right.url"
           class="w-full h-full"
+          sizes="100px xs:150px sm:200px md:400px lg:600px"
           :imgAttrs="{ class: 'w-full h-full object-cover ' }"
         />
     </div>

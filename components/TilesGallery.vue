@@ -11,10 +11,11 @@
           :src="image.full_image_url"
           class="h-full cursor-pointer flex group overflow-hidden"
           fit="cover"
-          sizes="100px xs:150px sm:200px md:400px lg:800px"
+          sizes="150px xs:200px sm:300px md:400px lg:700px"
           :imgAttrs="{
             class: 'loading object-cover h-full w-auto flex-grow group-hover:scale-[101%] transition duration-300',
           }"
+          :loading="index > 10 ? 'lazy' : 'eager'"
           @click="modalOpen(image.full_image_url)"
           @load="removeLoadingStyle($event,index)"
         />
