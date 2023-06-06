@@ -95,7 +95,6 @@ export default {
   },
   mounted() {
     this.isMounted = true
-    this.$gtag.pageview(this.$route)
 
     if (!this.gaCookie){
       this.$gtag.optOut()
