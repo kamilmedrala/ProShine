@@ -33,6 +33,11 @@ export default {
     HeaderSection,
     SectionBasic,
   },
+  head(){
+    return {
+      title: "PRO SHINE - Polityka prywatności"
+    }
+  },
   data() {
     return {
       pageData: this.$store.getters.policypageData,

@@ -42,6 +42,12 @@ export default {
     HeaderSection,
     ContactData,
   },
+  head(){
+    return {
+      title: "PRO SHINE - Kontakt",
+    }
+  },
+
 }
 </script>
 

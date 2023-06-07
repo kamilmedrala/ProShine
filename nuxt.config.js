@@ -14,7 +14,6 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'PRO SHINE - profesjonalne usługi detailingowe pojazdów',
     htmlAttrs: {
       lang: 'pl',
     },
@@ -45,7 +44,8 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
-    '@abbo/nuxt-google-analytics'
+    '@abbo/nuxt-google-analytics',
+    'nuxt-compress'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -53,6 +53,16 @@ export default {
 
   image: {
     domains: ['https://api.proshinedetailing.pl/'],
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1600,
+      xxxl: 1920,
+      xxxxl: 2704,
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -23,7 +23,7 @@
         >
           <div
             ref="swiper"
-            class="swiper swiper-container h-[400px] md:h-auto md:aspect-video w-full rounded-l-md md:rounded-md overflow-hidden"
+            class="swiper swiper-container h-[400px] md:h-auto md:aspect-video w-full max-w-7xl rounded-l-md md:rounded-md overflow-hidden"
           >
             <div class="swiper-wrapper h-full">
               <div
@@ -35,12 +35,12 @@
                   <nuxt-picture
                     v-if="item.url"
                     preload
-                    class="block w-full h-full md:rounded-md overflow-hidden"
+                    sizes="100px xs:220px sm:450px md:600px lg:800px xl:900px xxl:1000px xxxl:1024px xxxxl:1300px" 
+                    fit="outside"
+                    class="block w-full max-w-7xl h-full md:rounded-md overflow-hidden"
                     :src="item.url"
                     :title="item.title ? item.title : 'banner image'"
                     :alt="item.alt ? item.alt : 'banner image'"
-                    height="600"
-                    width="800"
                     :imgAttrs="{
                       class:
                         'loading opacity-100 transition duration-500 w-full h-full  object-cover overflow-hidden',
@@ -51,7 +51,7 @@
                     @load="removeLoadingStyle($event)"
                   ></nuxt-picture>
                   <div
-                    class="hidden md:block w-full h-full absolute top-0 -left-[1px] z-40 bg-gradient-to-r from-gray-dark via-transparent to-transparent opacity-0 transition duration-300"
+                    class="hidden md:block w-full h-full absolute top-0 -left-[1px] z-40 bg-gradient-to-r from-0% to-100% from-gray-dark via-transparent to-transparent opacity-0 transition duration-300"
                   ></div>
                   <span
                     v-if="item.title"

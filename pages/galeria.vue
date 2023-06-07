@@ -37,6 +37,12 @@ export default {
     Appear,
     TilesGallery,
   },
+  head(){
+    return {
+      title: "PRO SHINE - Galeria",
+    }
+  },
+
   data() {
     return {
       pageData: this.$store.getters.gallerypageData,

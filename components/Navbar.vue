@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="fixed left-0 top-0 w-full z-50 transition bg-gradient-to-b from-gray-dark to-transparent"
+    class="fixed left-0 top-0 w-full z-50 transition bg-gradient-to-b from-0% to-100% from-gray-dark to-transparent"
   >
     <div
       class="relative px-[5%] mx-auto lg:container flex justify-between transform duration-500"
@@ -15,7 +15,7 @@
               class: 'my-1 w-[inherit] transition-all duration-200',
             }"
             class="w-16 md:w-20"
-            :class="{ 'w-14 md:w-14': this.collapsed }"
+            :class="{ '!w-12 !md:w-14' :collapsed }"
             src="/logo.png"
             alt="ProShine Logo"
             @load="loaded = true"

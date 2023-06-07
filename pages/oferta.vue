@@ -33,6 +33,12 @@ export default {
     HeaderSection,
     SectionBasic,
   },
+  head(){
+    return {
+      title: "PRO SHINE - Oferta",
+    }
+  },
+
   data() {
     return {
       pageData: this.$store.getters.offerpageData,

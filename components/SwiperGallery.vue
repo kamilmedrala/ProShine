@@ -15,6 +15,8 @@
               
               v-if="item.full_image_url"
               preload
+              sizes="100px xs:200px sm:450px md:60vw lg:60vw xl:60vw xxl:1200px"
+              fit="outside"
               class="block w-full h-full md:rounded-md overflow-hidden"
               :src="item.full_image_url"
               :title="item.title ? item.title : 'banner image'"

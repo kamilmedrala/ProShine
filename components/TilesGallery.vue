@@ -5,13 +5,13 @@
         v-for="(image, index) in data"
         :key="index"
         ref="images"
-        class="shrink-0 before-load flex-grow h-[150px] sm:h-[230px] md:h-[300px] lg:h-[370px] xl:h-[450px]"
+        class="shrink-0 before-load flex-grow min-w-[calc(33%_-_16px)] md:min-w-[calc(25%_-_24px)] h-[150px] sm:h-[230px] md:h-[300px] lg:h-[370px] xl:h-[450px]"
       >
         <nuxt-picture
           :src="image.full_image_url"
           class="h-full cursor-pointer flex group overflow-hidden"
           fit="cover"
-          sizes="100px xs:150px sm:200px md:400px lg:700px"
+          sizes="100px xs:200px sm:250px md:300px lg:600px"
           :imgAttrs="{
             class: 'loading object-cover h-full w-auto flex-grow group-hover:scale-[101%] transition duration-300',
           }"
@@ -91,10 +91,5 @@ export default {
 <style scoped>
 img.loading ~ span {
   @apply opacity-0;
-}
-
-.before-load,
-.before-load div{
-  @apply w-full
 }
 </style>

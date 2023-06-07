@@ -120,6 +120,11 @@ export default {
     SectionOffer,
     SectionOpinions,
   },
+  head(){
+    return {
+      title: "PRO SHINE - profesjonalne usługi detailingowe pojazdów",
+    }
+  },
   data() {
     return {
       pageData: this.$store.getters.homepageData,
