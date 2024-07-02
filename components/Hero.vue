@@ -70,7 +70,7 @@
                 class="flex group-hover:-translate-x-full transition duration-300"
               >
                 <svg
-                  class="transform basis-full flex-shrink-0 rotate-180 group-hover:invert invert-fix filter transition-[filter] duration-200"
+                  class="transform basis-full flex-shrink-0 rotate-180 invert-0 group-hover:invert invert-fix filter transition-[filter] duration-200"
                   width="26"
                   height="17"
                   viewBox="0 0 26 17"
@@ -94,7 +94,7 @@
                   />
                 </svg>
                 <svg
-                  class="transform basis-full flex-shrink-0 rotate-180 group-hover:invert invert-fix filter transition-[filter,transform] duration-200"
+                  class="transform basis-full flex-shrink-0 rotate-180 invert-0 group-hover:invert invert-fix filter transition-[filter,transform] duration-200"
                   width="26"
                   height="17"
                   viewBox="0 0 26 17"
@@ -130,7 +130,7 @@
                 class="flex justify-end group-hover:translate-x-full transition duration-300"
               >
                 <svg
-                  class="transform basis-full flex-shrink-0 group-hover:invert invert-fix filter transition-[filter] duration-200"
+                  class="transform basis-full flex-shrink-0 invert-0 group-hover:invert invert-fix filter transition-[filter] duration-200"
                   width="26"
                   height="17"
                   viewBox="0 0 26 17"
@@ -154,7 +154,7 @@
                   />
                 </svg>
                 <svg
-                  class="transform basis-full flex-shrink-0 group-hover:invert invert-fix filter transition-[filter,transform] duration-200"
+                  class="transform basis-full flex-shrink-0 invert-0 group-hover:invert invert-fix filter transition-[filter,transform] duration-200"
                   width="26"
                   height="17"
                   viewBox="0 0 26 17"

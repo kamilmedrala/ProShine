@@ -85,7 +85,7 @@
   }
 
   .invert-fix{
-    @apply backdrop-brightness-100 backdrop-contrast-100 backdrop-grayscale-0 backdrop-hue-rotate-0 backdrop-blur-0 backdrop-opacity-100 backdrop-saturate-100 backdrop-sepia-0
+    @apply brightness-100 contrast-100 grayscale-0 hue-rotate-0 blur-0 opacity-100 saturate-100 sepia-0 drop-shadow-none
 
   }
 
