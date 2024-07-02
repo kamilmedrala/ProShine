@@ -23,7 +23,7 @@
         >
           <div
             ref="swiper"
-            class="swiper swiper-container h-[400px] md:h-auto md:aspect-video w-full max-w-7xl rounded-l-md md:rounded-md overflow-hidden !mr-0"
+            class="swiper swiper-container h-[400px] md:h-auto md:aspect-video w-full max-w-7xl rounded-l-md md:rounded-md overflow-hidden ml-auto !mr-0"
           >
             <div class="swiper-wrapper h-full">
               <div
@@ -45,7 +45,7 @@
                     :imgAttrs="{
                       class:
                         'loading opacity-100 transition duration-500 w-full h-full  object-cover overflow-hidden',
-                      loading: 'eager',
+                      loading: index == 0 ? 'eager' : 'lazy',
 
                       'data-swiper-parallax': '150',
                     }"
@@ -70,7 +70,7 @@
                 class="flex group-hover:-translate-x-full transition duration-300"
               >
                 <svg
-                  class="transform basis-full flex-shrink-0 rotate-180 group-hover:invert filter transition-[filter] duration-200"
+                  class="transform basis-full flex-shrink-0 rotate-180 group-hover:invert invert-fix filter transition-[filter] duration-200"
                   width="26"
                   height="17"
                   viewBox="0 0 26 17"
@@ -94,7 +94,7 @@
                   />
                 </svg>
                 <svg
-                  class="transform basis-full flex-shrink-0 rotate-180 group-hover:invert filter transition-[filter,transform] duration-200"
+                  class="transform basis-full flex-shrink-0 rotate-180 group-hover:invert invert-fix filter transition-[filter,transform] duration-200"
                   width="26"
                   height="17"
                   viewBox="0 0 26 17"
@@ -130,7 +130,7 @@
                 class="flex justify-end group-hover:translate-x-full transition duration-300"
               >
                 <svg
-                  class="transform basis-full flex-shrink-0 group-hover:invert filter transition-[filter] duration-200"
+                  class="transform basis-full flex-shrink-0 group-hover:invert invert-fix filter transition-[filter] duration-200"
                   width="26"
                   height="17"
                   viewBox="0 0 26 17"
@@ -154,7 +154,7 @@
                   />
                 </svg>
                 <svg
-                  class="transform basis-full flex-shrink-0 group-hover:invert filter transition-[filter,transform] duration-200"
+                  class="transform basis-full flex-shrink-0 group-hover:invert invert-fix filter transition-[filter,transform] duration-200"
                   width="26"
                   height="17"
                   viewBox="0 0 26 17"
@@ -206,10 +206,10 @@ export default {
                 modules: [Parallax, Navigation, Autoplay],
                 spaceBetween: 20,
                 grabCursor: "true",
-                // autoplay: {
-                //     delay: 4000,
-                //     disableOnInteraction: false,
-                // },
+                autoplay: {
+                    delay: 5500,
+                    disableOnInteraction: false,
+                },
                 parallax: true,
                 speed: 900,
                 navigation: {
@@ -230,7 +230,7 @@ export default {
     methods: {
         removeLoadingStyle(event) {
             event.target.classList.remove("loading");
-            event.target.parentNode.nextElementSibling.style.opacity = "90%";
+            event.target.parentNode.nextElementSibling.style.opacity = "85%";
         },
     },
     components: { StyledButton }
