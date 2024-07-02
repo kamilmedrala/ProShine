@@ -23,7 +23,7 @@
         >
           <div
             ref="swiper"
-            class="swiper swiper-container h-[400px] md:h-auto md:aspect-video w-full max-w-7xl rounded-l-md md:rounded-md overflow-hidden"
+            class="swiper swiper-container h-[400px] md:h-auto md:aspect-video w-full max-w-7xl rounded-l-md md:rounded-md overflow-hidden !mr-0"
           >
             <div class="swiper-wrapper h-full">
               <div
@@ -37,6 +37,7 @@
                     preload
                     sizes="100px xs:220px sm:450px md:600px lg:800px xl:900px xxl:1000px xxxl:1024px xxxxl:1300px" 
                     fit="outside"
+                    format="webp"
                     class="block w-full max-w-7xl h-full md:rounded-md overflow-hidden"
                     :src="item.url"
                     :title="item.title ? item.title : 'banner image'"
@@ -51,22 +52,15 @@
                     @load="removeLoadingStyle($event)"
                   ></nuxt-picture>
                   <div
-                    class="hidden md:block w-full h-full absolute top-0 -left-[1px] z-40 bg-gradient-to-r from-0% to-100% from-gray-dark via-transparent to-transparent opacity-0 transition duration-300"
+                    class="hidden md:block w-full h-full absolute top-0 -left-[1px] z-40 bg-gradient-to-r from-0% via-50% to-100% from-gray-dark via-transparent to-transparent opacity-0 transition duration-300"
                   ></div>
-                  <span
-                    v-if="item.title"
-                    class="z-50 italic text-gold text-2xl md:text-3xl font-extralight relative bottom-14 left-10"
-                    data-swiper-parallax="600"
-                  >
-                    {{ item.title }}
-                  </span>
                 </div>
               </div>
             </div>
           </div>
           <div class="hidden md:flex justify-end mt-3">
             <span
-              class="swiper-prev group relative overflow-hidden w-14 h-14 flex items-center justify-center rounded-full border border-solid border-gray-light/50 hover:border-white transition text-gray-main"
+              class="swiper-prev group cursor-pointer relative overflow-hidden w-14 h-14 flex items-center justify-center rounded-full border border-solid border-gray-light/50 hover:border-white transition text-gray-main"
             >
               <span
                 class="block absolute top-0 left-0 -translate-x-full duration-200 transition group-hover:translate-x-0 w-[120%] h-[120%] bg-white"
@@ -126,7 +120,7 @@
               </span>
             </span>
             <span
-              class="swiper-next ml-3 group relative overflow-hidden w-14 h-14 flex items-center justify-center rounded-full border border-solid border-gray-light/50 hover:border-white transition text-gray-main"
+              class="swiper-next ml-3 group cursor-pointer relative overflow-hidden w-14 h-14 flex items-center justify-center rounded-full border border-solid border-gray-light/50 hover:border-white transition text-gray-main"
             >
               <span
                 class="block absolute top-0 right-0 translate-x-full duration-200 transition group-hover:translate-x-0 w-[120%] h-[120%] bg-white"
@@ -212,10 +206,10 @@ export default {
                 modules: [Parallax, Navigation, Autoplay],
                 spaceBetween: 20,
                 grabCursor: "true",
-                autoplay: {
-                    delay: 4000,
-                    disableOnInteraction: false,
-                },
+                // autoplay: {
+                //     delay: 4000,
+                //     disableOnInteraction: false,
+                // },
                 parallax: true,
                 speed: 900,
                 navigation: {

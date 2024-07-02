@@ -13,6 +13,7 @@
     >
       <nuxt-picture
         v-if="data.image_left.url"
+        format="webp"
         :src="data.image_left.url"
         class="w-full h-full"
         :imgAttrs="{ class: 'w-full h-full object-cover ' }"
@@ -21,6 +22,7 @@
     <div class="w-full h-full pointer-events-none">
       <nuxt-picture
         v-if="data.image_right.url"
+        format="webp"
         :src="data.image_right.url"
         class="w-full h-full"
         :imgAttrs="{ class: 'w-full h-full object-cover ' }"
@@ -88,6 +90,7 @@
     <div ref="singleImage" class="absolute inset-x-0 inset-y-[-25px]">
       <nuxt-picture
           v-if="data.image_left.url"
+          format="webp"
           :src="data.image_left.url"
           class="w-full h-full"
           sizes="150px xs:250px sm:350px md:450px lg:600px"
@@ -95,6 +98,7 @@
         />
         <nuxt-picture
           v-else-if="data.image_right.url"
+          format="webp"
           :src="data.image_right.url"
           class="w-full h-full"
           sizes="150px xs:250px sm:350px md:450px lg:600px"

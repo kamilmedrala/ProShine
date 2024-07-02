@@ -85,6 +85,18 @@
   }
 
   * {
+    --tw-blur: ;
+    --tw-brightness: ;
+    --tw-contrast: ;
+    --tw-grayscale: ;
+    --tw-hue-rotate: ;
+    --tw-invert: ;
+    --tw-saturate: ;
+    --tw-sepia: ;
+    --tw-drop-shadow: ;
+  }
+
+  * {
     scrollbar-width: 10px;
     scrollbar-color: #2f2f2c transparent;
   }

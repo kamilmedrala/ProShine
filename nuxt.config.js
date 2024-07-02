@@ -53,16 +53,6 @@ export default {
 
   image: {
     domains: ['https://api.proshinedetailing.pl/'],
-    screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1600,
-      xxxl: 1920,
-      xxxxl: 2704,
-    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

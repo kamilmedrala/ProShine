@@ -17,6 +17,7 @@
               preload
               sizes="100px xs:200px sm:450px md:60vw lg:60vw xl:60vw xxl:1200px"
               fit="outside"
+              format="webp"
               class="block w-full h-full md:rounded-md overflow-hidden"
               :src="item.full_image_url"
               :title="item.title ? item.title : 'banner image'"
@@ -35,7 +36,7 @@
     <div class="px-[5%] mt-5 mx-auto lg:container">
       <div class="hidden md:flex justify-end mt-3">
           <span
-            class="swiperGallery-prev group relative overflow-hidden w-14 h-14 flex items-center justify-center rounded-full border border-solid border-gray-light/50 hover:border-white transition text-gray-main"
+            class="swiperGallery-prev cursor-pointer group relative overflow-hidden w-14 h-14 flex items-center justify-center rounded-full border border-solid border-gray-light/50 hover:border-white transition text-gray-main"
           >
             <span
               class="block absolute top-0 left-0 -translate-x-full duration-200 transition group-hover:translate-x-0 w-[120%] h-[120%] bg-white"
@@ -95,7 +96,7 @@
             </span>
           </span>
           <span
-            class="swiperGallery-next ml-3 group relative overflow-hidden w-14 h-14 flex items-center justify-center rounded-full border border-solid border-gray-light/50 hover:border-white transition text-gray-main"
+            class="swiperGallery-next cursor-pointer ml-3 group relative overflow-hidden w-14 h-14 flex items-center justify-center rounded-full border border-solid border-gray-light/50 hover:border-white transition text-gray-main"
           >
             <span
               class="block absolute top-0 right-0 translate-x-full duration-200 transition group-hover:translate-x-0 w-[120%] h-[120%] bg-white"

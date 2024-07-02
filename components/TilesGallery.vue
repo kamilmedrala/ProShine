@@ -11,6 +11,7 @@
           :src="image.full_image_url"
           class="h-full cursor-pointer flex group overflow-hidden"
           fit="cover"
+          format="webp"
           sizes="100px xs:200px sm:250px md:300px lg:600px"
           :imgAttrs="{
             class: 'loading object-cover h-full w-auto flex-grow group-hover:scale-[101%] transition duration-300',

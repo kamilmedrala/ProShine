@@ -11,6 +11,7 @@
           <nuxt-picture
             width="80"
             height="80"
+            format="webp"
             :imgAttrs="{
               class: 'my-1 w-[inherit] transition-all duration-200',
             }"
