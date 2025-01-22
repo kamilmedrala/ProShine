@@ -28,9 +28,6 @@
       </EffectAppear>
       <template #fullwidth>
         <SectionGallerySwiper class="mb-5 md:mb-10" :data="pageData.photo_gallery['section_homepage_gallery'][1]" />
-        <EffectAppear>
-          <UiButton :url="'/galeria'" :text="'Zobacz galerię'" :center="true" />
-        </EffectAppear>
       </template>
     </UiContainer>
   

@@ -83,6 +83,9 @@
           </span>
         </button>
       </div>
+      <EffectAppear>
+        <UiButton :url="'/galeria'" :text="'Zobacz galerię'" :center="true" />
+      </EffectAppear>
     </div>
   </div>
 </template>

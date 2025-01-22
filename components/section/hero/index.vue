@@ -12,7 +12,7 @@
       <div class="absolute inset-0 rounded-xl overflow-hidden">
         <div ref="parallaxBanner" class="size-full">
           <NuxtPicture :src="data.image.url"
-          class="size-full brightness-50 md:brightness-75"
+          class="size-full brightness-50 md:brightness-75 brightness-fix"
           alt="Pro Shine baner"
           loading="eager"
           :img-attrs="{class:'size-full object-cover'}" />
