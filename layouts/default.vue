@@ -1,68 +1,66 @@
 <template>
-  <div class="relative">
-    <Background />
-    <div class="z-10 md:min-h-screen flex flex-col justify-between">
-      <Navbar :menu="menuItems" />
-      <Nuxt />
-      <PopupCookies />
-      <Footer class="self-end" :menu="footerItems" />
-    </div>
+  <div class="md:min-h-screen flex flex-col justify-between">
+    <LayoutNavbar :menu="menuItems" />
+    <slot />
+    <FeaturePopupCookies />
+    <LayoutFooter class="self-end" :menu="footerItems" />
   </div>
 </template>
 
-<script>
-import Navbar from '../components/Navbar.vue'
-import Background from '../components/Background.vue'
-import Footer from '../components/Footer.vue'
-import PopupCookies from '../components/PopupCookies.vue'
 
-export default {
-  components: {
-    Navbar,
-    Background,
-    Footer,
-    PopupCookies,
-    PopupCookies
-  },
-  scrollToTop: true,
-  data() {
-    return {
-      menuItems: {
-        0: {
-          title: 'Oferta',
-          link: '/oferta',
-        },
-        1: {
-          title: 'Galeria',
-          link: '/galeria',
-        },
-        2: {
-          title: 'Kontakt',
-          link: '/kontakt',
-        },
-      },
-      footerItems: {
-        0: {
-          title: 'Oferta',
-          link: '/oferta',
-        },
-        1: {
-          title: 'Galeria',
-          link: '/galeria',
-        },
-        2: {
-          title: 'Kontakt',
-          link: '/kontakt',
-        },
-        3: {
-          title: 'Polityka prywatności',
-          link: '/polityka-prywatnosci',
-        }
-      },
+<script setup>
 
-    }
+const menuItems = ref({
+  0: {
+    title: 'Oferta',
+    link: '/oferta',
   },
-}
+  1: {
+    title: 'Galeria',
+    link: '/galeria',
+  },
+  2: {
+    title: 'Kontakt',
+    link: '/kontakt',
+  },
+})
+
+const footerItems = ref({
+  0: {
+    title: 'Oferta',
+    link: '/oferta',
+  },
+  1: {
+    title: 'Galeria',
+    link: '/galeria',
+  },
+  2: {
+    title: 'Kontakt',
+    link: '/kontakt',
+  },
+  3: {
+    title: 'Polityka prywatności',
+    link: '/polityka-prywatnosci',
+  },
+})
+
+useHead({
+  htmlAttrs: {
+    lang: 'pl',
+  },
+  title: 'PRO SHINE - Auto Detailing',
+  meta: [
+    { charset: 'utf-8' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        'PRO SHINE - Auto Detailing Skrzyszów, Śląsk. Przywróć swój samochód do stanu salonowego! Auto-detailing, regeneracja reflektorów, powłoki ceramiczne, pranie wnętrz, ozonowanie, przygotowania przed sprzedarzą i wiele innych! ',
+    },
+  ],
+  link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+},)
 </script>
 
 <style>
@@ -72,20 +70,8 @@ export default {
 }
 
 .page-enter-from,
-.page-enter,
 .page-leave-to {
   opacity: 0;
-}
-
-.page-enter-from .fade-left,
-.page-enter .fade-left,
-.page-leave-to .fade-left {
-  transform: translateX(-20px);
-}
-
-.page-enter-from .fade-right,
-.page-enter .fade-right,
-.page-leave-to .fade-right {
-  transform: translateX(20px);
+  filter: blur(8px);
 }
 </style>

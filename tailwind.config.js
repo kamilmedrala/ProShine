@@ -1,20 +1,17 @@
-module.exports = {
-  content: [
-    './components/**/*.{js,vue,ts}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
-    './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}',
-  ],
+export default {
   theme: {
     extend: {
       colors: {
         gold: '#BEB396',
         gray: {
-          light: '#E5E5E5',
-          main: '#262625',
+          light: '#F5F5F5',
+          main: '#909090',
           dark: '#1C1C1C',
         },
+      },
+      container:{
+        center: true,
+        padding: '1.25rem',
       },
       fontFamily: {
         main: [
@@ -34,8 +31,11 @@ module.exports = {
           'Segoe UI Symbol',
           'Noto Color Emoji',
         ],
+        serif: [
+          'Newsreader',
+          'sans-serif'
+        ],
       },
     },
   },
-  plugins: [],
 }
