@@ -27,7 +27,7 @@
         <UiHeader title="Realizacje" class="mb-10 md:mb-16" />
       </EffectAppear>
       <template #fullwidth>
-        <SectionGallerySwiper class="mb-5 md:mb-10" :data="pageData.photo_gallery['section_homepage_gallery'][1]" />
+        <SectionGallerySwiper :data="pageData.photo_gallery['section_homepage_gallery'][1]" />
       </template>
     </UiContainer>
   

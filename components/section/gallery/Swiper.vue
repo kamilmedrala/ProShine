@@ -83,7 +83,7 @@
           </span>
         </button>
       </div>
-      <EffectAppear>
+      <EffectAppear class="mt-5 md:mt-10">
         <UiButton :url="'/galeria'" :text="'Zobacz galerię'" :center="true" />
       </EffectAppear>
     </div>
