@@ -1,14 +1,8 @@
 <template>
   <div class="w-full overflow-hidden md:container">
     <ClientOnly>
-      <swiper-container
-        class="swiper-container"
-        :slides-per-view="'auto'"
-        :loop="true"
-        :autoplay="{ delay: 4000, disableOnInteraction: false }"
-        :speed="1000"
-        :parallax="true"
-        pagination="true"
+      <swiper-container class="swiper-container" :slides-per-view="'auto'" :loop="true"
+        :autoplay="{ delay: 4000, disableOnInteraction: false }" :speed="1000" :parallax="true" pagination="true"
         :breakpoints="{
           1024: {
             loop: false,
@@ -24,13 +18,8 @@
               fill: 'row',
             },
           },
-        }"
-      >
-        <swiper-slide
-          v-for="(item, index) in reviewsArray"
-          :key="index"
-          class="basis-4/5 md:basis-1/2 lg:basis-auto"
-        >
+        }">
+        <swiper-slide v-for="(item, index) in reviewsArray" :key="index" class="basis-4/5 md:basis-1/2 lg:basis-auto">
           <SectionTestimonialsTile :data="item" />
         </swiper-slide>
       </swiper-container>
@@ -54,16 +43,23 @@ const reviewsArray = computed(() => {
 </script>
 
 <style>
-.swiper-container::part(pagination){
+.swiper-container::part(container) {
+  @apply pb-10 lg:pb-0
+}
+
+.swiper-container::part(pagination) {
   @apply lg:hidden mt-5
-} 
+}
+
 .swiper-container::part(bullet) {
   @apply !w-8 !h-[3px] !rounded-none !bg-gray-main !opacity-40 !transition-all !duration-300;
 }
+
 .swiper-container::part(bullet-active) {
   @apply !w-10 !h-1 !rounded-none !bg-gold !transition-all !duration-300;
 }
-.swiper-container::part(wrapper){
+
+.swiper-container::part(wrapper) {
   @apply !overflow-visible px-5 md:px-0;
 }
 </style>

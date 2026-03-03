@@ -46,12 +46,12 @@
       <SectionCta class="mb-20 md:mb-[150px]" />
     </UiContainer>
   
-    <UiContainer class="mb-20 md:mb-[150px]">
+    <UiContainer v-if="pageData.reviews" class="mb-20 md:mb-[150px]">
       <EffectAppear>
         <UiHeader title="Opinie" class="mb-10 md:mb-16" />
       </EffectAppear>
       <template #fullwidth>
-        <SectionTestimonials :data="reviews" />
+        <SectionTestimonials :data="pageData.reviews" />
       </template>
     </UiContainer>
   
@@ -89,14 +89,4 @@ const offers = computed(() => {
   ];
 });
 
-const reviews = computed(() => {
-  return [
-    pageData.value?.review1,
-    pageData.value?.review2,
-    pageData.value?.review3,
-    pageData.value?.review4,
-    pageData.value?.review5,
-    pageData.value?.review6,
-  ];
-});
 </script>
