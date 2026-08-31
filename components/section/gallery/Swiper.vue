@@ -2,7 +2,7 @@
   <div class="w-full">
     <ClientOnly>
       <swiper-container ref="containerRef"
-        class="swiper-container h-[300px] md:h-[500px] md:aspect-video w-full rounded-l-md md:rounded-md !overflow-visible"
+        class="swiper-container h-[300px] md:h-[500px] 2xl:h-[640px] w-full rounded-l-md md:rounded-md !overflow-visible"
         :slides-per-view="'auto'"
         :centered-slides="true"
         :autoplay="true"
@@ -10,28 +10,19 @@
         :parallax="true"
         :speed="1000">
         <swiper-slide v-for="(item, index) in data" :key="index"
-          class="swiper-slide max-w-full !w-3/4 md:!w-2/3 flex items-center overflow-hidden px-2.5 md:px-5">
+          class="swiper-slide max-w-full !w-3/4 md:!w-2/3 self-center h-full [&:not(.swiper-slide-active)]:h-3/4 transition-all duration-500 overflow-hidden px-2.5 md:px-5">
           <div class="swiper-img-container relative w-full h-full rounded-md overflow-hidden">
-            <!-- <nuxt-picture
-              v-if="item.full_image_url"
-              preload
-              sizes="100px xs:200px sm:450px md:60vw lg:60vw xl:60vw xxl:1200px"
-              fit="outside"
-              format="webp"
-              class="block w-full h-full md:rounded-md overflow-hidden"
-              :src="replaceImgUrlWithAlias(item.full_image_url)"
-              :title="item.title ? item.title : 'banner image'"
-              :alt="item.alt ? item.alt : 'banner image'"
-              :imgAttrs="{
-                class:
-                  ' opacity-100 transition duration-500 w-full h-full  object-cover overflow-hidden',
-                'data-swiper-parallax': '100',
-              }"
-            /> -->
+            <!--
+              Stays a plain <img> on the raw WordPress URL: this carousel is inside
+              <ClientOnly>, so it never reaches the prerendered HTML, and `nuxi generate`
+              only emits /_ipx/ files for images it finds there — nuxt-picture here would
+              point at /_ipx/ URLs that were never built (404 on the static host).
+            -->
             <img v-if="item.full_image_url" :src="item.full_image_url"
               :alt="item.alt ? item.alt : 'Realizacja PRO SHINE'"
               :title="item.title ? item.title : 'Realizacja PRO SHINE'"
-              class="relative z-10 bg-gray-light size-full object-cover rounded-md" loading="lazy" data-swiper-parallax="150" />
+              class="relative z-10 bg-gray-light size-full object-cover rounded-md" loading="lazy"
+              decoding="async" data-swiper-parallax="150" />
           </div>
         </swiper-slide>
       </swiper-container>
@@ -103,12 +94,14 @@ const swiper = useSwiper(containerRef)
 </script>
 
 <style scoped>
+/* Height is driven by the slide itself (h-full / h-3-4 in the template) so it always
+   resolves against the carousel's fixed height, never against the image's own size. */
 .swiper-slide .swiper-img-container {
-  transition-property: height !important;
+  transition-property: opacity;
   transition-duration: 500ms;
 }
 
 .swiper-slide:not(.swiper-slide-active) .swiper-img-container {
-  @apply !h-4/5 opacity-75;
+  @apply opacity-75;
 }
 </style>

@@ -9,7 +9,6 @@
 </template>
 
 <script setup>
-import { ref } from '@vue/composition-api'
 import { useElementVisibility } from '@vueuse/core'
 
 const props= defineProps({
