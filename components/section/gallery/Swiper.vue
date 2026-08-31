@@ -9,22 +9,16 @@
         :loop="true"
         :parallax="true"
         :speed="1000">
-        <swiper-slide v-for="(item, index) in data" :key="index"
-          class="swiper-slide max-w-full !w-3/4 md:!w-2/3 self-center h-full [&:not(.swiper-slide-active)]:h-3/4 transition-all duration-500 overflow-hidden px-2.5 md:px-5">
+        <div v-for="(item, index) in data" :key="index"
+          class="swiper-slide shrink-0 max-w-full !w-3/4 md:!w-2/3 self-center h-full [&:not(.swiper-slide-active)]:h-3/4 transition-all duration-500 overflow-hidden px-2.5 md:px-5">
           <div class="swiper-img-container relative w-full h-full rounded-md overflow-hidden">
-            <!--
-              Stays a plain <img> on the raw WordPress URL: this carousel is inside
-              <ClientOnly>, so it never reaches the prerendered HTML, and `nuxi generate`
-              only emits /_ipx/ files for images it finds there — nuxt-picture here would
-              point at /_ipx/ URLs that were never built (404 on the static host).
-            -->
             <img v-if="item.full_image_url" :src="item.full_image_url"
               :alt="item.alt ? item.alt : 'Realizacja PRO SHINE'"
               :title="item.title ? item.title : 'Realizacja PRO SHINE'"
               class="relative z-10 bg-gray-light size-full object-cover rounded-md" loading="lazy"
               decoding="async" data-swiper-parallax="150" />
           </div>
-        </swiper-slide>
+        </div>
       </swiper-container>
     </ClientOnly>
     <div class="container">
